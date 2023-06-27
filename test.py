@@ -1,6 +1,10 @@
 
 # problem 1==========================================
 
+
+from collections import defaultdict
+
+
 def minRemovals(s):
     if len(s) < 1 or len(s) > 100:
         return -1
@@ -29,19 +33,19 @@ print(minRemovals(s3))
 
 
 # problem 2==========================================
+
 def groupAnagrams(strs):
-    if len(strs) < 1 or len(strs) > 10**4:
-        return []
-    anagram_dict = {}
+    anagram_groups = defaultdict(list)
 
     for word in strs:
-        sorted_word = ''.join(sorted(word))
-        if sorted_word in anagram_dict:
-            anagram_dict[sorted_word].append(word)
-        else:
-            anagram_dict[sorted_word] = [word]
+        count = [0] * 26
 
-    return list(anagram_dict.values())
+        for ch in word:
+            count[ord(ch) - ord('a')] += 1
+
+        anagram_groups[tuple(count)].append(word)
+
+    return list(anagram_groups.values())
 
 
 strs1 = ["eat", "tea", "tan", "ate", "nat", "bat"]
