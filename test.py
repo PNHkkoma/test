@@ -2,6 +2,8 @@
 # problem 1==========================================
 
 def minRemovals(s):
+    if len(s) < 1 or len(s) > 100:
+        return -1
     stack = []
 
     for char in s:
@@ -28,6 +30,8 @@ print(minRemovals(s3))
 
 # problem 2==========================================
 def groupAnagrams(strs):
+    if len(strs) < 1 or len(strs) > 10**4:
+        return []
     anagram_dict = {}
 
     for word in strs:
