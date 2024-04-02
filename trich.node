@@ -1,0 +1,25 @@
+"""
+ctrl + shift + p: chọn code to image để import đoạn code sang ảnh đẹp
+ctrl + shift +f: tìm kiếm keyword trong tất cả các file đang bật(nó giống như cái tìm kiếm bên trái màn hình dưới cái file ấy)
+ctrl + p: tìm file trên thanh công cụ, mở file nhanh
+ctrl + b: đóng cái thanh explorer bên trái lại
+ctrl + W: đóng file đang bật lên
+
+ctrl + shift + M: nhảy đến cái error và warning trong project
+F8: chuyển đến error hoặc warning tiếp theo
+ctrl + f8: chuyển đến error và warning trước đó
+
+ctrl + K Z: vào chế độ zen mode
+ctrl + \: chia thành nhiều tab
+ctrl + L: chọn dòng hiện tại 
+ctrl + Shift + L: trỏ con trỏ chuột đến tất cả vị trí liên quan đến từ được chọn và thực hiện thay đổi tất cả chúng
+ctrl + D: tương tự bên trên nhưng nó chỉ trỏ tới vị trí tiếp theo giống phần được bôi đen
+ctrl + shift + K: xóa dòng hiện tại đang chỏ bởi con chuột
+ctrl + ] hoặc [: tăng hoặc giảm thụt lề đầu dòng
+shift + alt + up/down: copy dòng đang trỏ(hoặc đoạn đang bôi đen) và paste vào bên trên/dưới đoạn đó
+alt + up/down: di chuyển dòng đang chọn lên/xuống
+alt + ctrl + down: trỏ con trỏ xuống những đoạn code tương tự phía dưới và thực hiện ghi đồng loạt
+shift + alt + F: định dạng lại mã code(như kiểu căn chỉnh các cái khoảng lề không đúng)
+shift + alt + A: chú thích cho 1 đoạn code
+
+"""
