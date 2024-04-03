@@ -67,6 +67,76 @@ function custom_api() {
     return _showMessage_api(400, "Không tồn tại loại api này", NULL);
   }
   switch($type) {
+case "GetBlockNavigationMeshData":
+      $SessionID = $_POST['blockID'];
+      $id = isset($_POST['navigationMeshID']) ? $_POST['navigationMeshID'] : "";
+      if($id == "")
+        $result = views_get_view_result('nodefunction', 'block_2', $SessionID);
+      else
+        $result = views_get_view_result('nodefunction', 'block_2', $SessionID, $id);
+      $data = array();
+      foreach($result as $key => $rs) {
+        $nid = $rs->nid;
+        $node = node_load($nid);
+        $data[$key]->id = $node->field_id['und'][0]['value'];
+        $data[$key]->blockID = $SessionID;
+        $data[$key]->name = $node->title;
+        $data[$key]->transform->orientation->w = $node->field_orientation2['und'][0]['value'];
+        $data[$key]->transform->orientation->x = $node->field_orientation2['und'][1]['value'];
+        $data[$key]->transform->orientation->y = $node->field_orientation2['und'][2]['value'];
+        $data[$key]->transform->orientation->z = $node->field_orientation2['und'][3]['value'];
+        $data[$key]->transform->position->x = $node->field_position2['und'][0]['value'];
+        $data[$key]->transform->position->y = $node->field_position2['und'][1]['value'];
+        $data[$key]->transform->position->z = $node->field_position2['und'][2]['value'];
+        $data[$key]->transform->scale->x = $node->field_scale2['und'][0]['value'];
+        $data[$key]->transform->scale->y = $node->field_scale2['und'][1]['value'];
+        $data[$key]->transform->scale->z = $node->field_scale2['und'][2]['value'];
+        $data[$key]->url = $node->field_url['und'][0]['value'];
+        $data[$key]->urlSize = _getSize($node->field_url['und'][0]['value']);
+        $data[$key]->urlSizeFormated = _minio_format_size($data[$key]->urlSize);
+
+        //https://s3.educationxr.vn/ar-world/models/falling_coin.glb
+
+      }
+      return _showMessage_api(200, "Thành công", $data);
+
+      break;
+    case "GetBlockNavigationMeshLinkData":
+      $SessionID = $_POST['blockID'];
+      $id = isset($_POST['navigationMeshLinkID']) ? $_POST['navigationMeshLinkID'] : "";
+      if($id == "")
+        $result = views_get_view_result('nodefunction', 'block_3', $SessionID);
+      else
+        $result = views_get_view_result('nodefunction', 'block_3', $SessionID, $id);
+      $data = array();
+      foreach($result as $key => $rs) {
+        $nid = $rs->nid;
+        $node = node_load($nid);
+        $data[$key]->id = $node->field_id['und'][0]['value'];
+        $data[$key]->blockID = $SessionID;
+        $data[$key]->name = $node->title;
+        $data[$key]->transform->orientation->w = $node->field_orientation2['und'][0]['value'];
+        $data[$key]->transform->orientation->x = $node->field_orientation2['und'][1]['value'];
+        $data[$key]->transform->orientation->y = $node->field_orientation2['und'][2]['value'];
+        $data[$key]->transform->orientation->z = $node->field_orientation2['und'][3]['value'];
+        $data[$key]->transform->position->x = $node->field_position2['und'][0]['value'];
+        $data[$key]->transform->position->y = $node->field_position2['und'][1]['value'];
+        $data[$key]->transform->position->z = $node->field_position2['und'][2]['value'];
+        $data[$key]->transform->scale->x = $node->field_scale2['und'][0]['value'];
+        $data[$key]->transform->scale->y = $node->field_scale2['und'][1]['value'];
+        $data[$key]->transform->scale->z = $node->field_scale2['und'][2]['value'];
+        $data[$key]->startPoint->x = $node->field_startpoint['und'][0]['value'];
+        $data[$key]->startPoint->y = $node->field_startpoint['und'][1]['value'];
+        $data[$key]->startPoint->z = $node->field_startpoint['und'][2]['value'];
+        $data[$key]->endPoint->x = $node->field_endpoint['und'][0]['value'];
+        $data[$key]->endPoint->y = $node->field_endpoint['und'][1]['value'];
+        $data[$key]->endPoint->z = $node->field_endpoint['und'][2]['value'];
+        $data[$key]->width = $node->field_width['und'][0]['value'];
+        $data[$key]->cost = $node->field_cost['und'][0]['value'];
+        $data[$key]->bidirectional = $node->field_bidirectional['und'][0]['value'];
+      }
+      return _showMessage_api(200, "Thành công", $data);
+      break;
     case "GetTypeLocation":
       $allCategories = taxonomy_get_tree(2, 0, 1); //tạo cây từ taxonomy: 2 có nghĩa là id của taxonomy; 0 có nghĩa là id term nếu là 0 thì tạo cho toàn bộ vocabulary nên id thực tế sẽ -1 so với ở đây;1 là Số cấp độ của cây cần trả về. Để lại NULL để trả về tất cả các cấp độ.
       //thực tế ở đây trong vocabulary type palce hoặc category thì chưa có cha nào, sau khi getchild thì mới lấy con, khi đó sẽ rõ cha của nó là ai
