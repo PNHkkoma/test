@@ -1,4 +1,22 @@
-
+admin_menu
+admin_views
+backup_migrate
+bundle_copy
+ckeditor
+ctools
+devel
+entity
+field_group
+libraries
+minio
+pathauto
+references
+taxonomy_manager 
+token
+transliteration
+views
+views_bilk_operations
+views_field_view
 # problem 1==========================================
 
 
