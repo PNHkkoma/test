@@ -9,7 +9,45 @@ function _getChild($vid, $parent) {
   }
   return $data;
 }
-
+function _getSize($url) {
+    if($url == "") {
+      return 0;
+    }
+    //https://s3.educationxr.vn/ar-world/models/falling_coin.glb
+    watchdog('lesson_xr', 'cApi call to %formly', array('%formly' => $url), WATCHDOG_NOTICE, $link = NULL);
+    $bitbucket = 'ar-world';
+    $find = "https://s3.educationxr.vn";
+    $vitri = strpos($url, $find);
+    if($vitri !== false) {//timf thayas
+      $array = explode("/".$bitbucket."/", $url);
+      $fileInfo =  pathinfo($array[1]);
+      //dsm($fileInfo);
+      if($fileInfo['extension'] == "gltf") {
+        ///scene.gltf
+        $s3Client = _minio_create_client();
+        $size = _getTotalSizeOfFolder($s3Client, $bitbucket, str_replace("/scene.gltf", "", $array[1]));
+        return $size;
+      }else{
+        $size = minio_getsize_offile($bitbucket, $array[1]);
+        return $size;
+      }
+  
+    }else{
+      $fileInfo =  pathinfo($url);
+      //dsm($fileInfo);
+      if($fileInfo['extension'] == "gltf") {
+        ///scene.gltf
+        $s3Client = _minio_create_client();
+        $size = _getTotalSizeOfFolder($s3Client, $bitbucket, str_replace("/scene.gltf", "", $url));
+        return $size;
+      }else{
+        $size = minio_getsize_offile($bitbucket, $url);
+        return $size;
+      }
+    }
+    return 0;
+  
+  }
 /**
  * Function for custom ajax
  */
@@ -30,22 +68,25 @@ function custom_api() {
   }
   switch($type) {
     case "GetTypeLocation":
-      $allCategories = taxonomy_get_tree(2, 0, 2); //lấy ra danh sách các thuộc tính (term) có vocabulary có ID bằng 2 cụ thể: 2,0,1 là id vocabulary, id của term gốc(trường hợp này là 0 để lấy tất cả thuộc tính trong voca), là cờ flag để xem có bao gồm term con hay không
+      $allCategories = taxonomy_get_tree(2, 0, 1); //tạo cây từ taxonomy: 2 có nghĩa là id của taxonomy; 0 có nghĩa là id term nếu là 0 thì tạo cho toàn bộ vocabulary nên id thực tế sẽ -1 so với ở đây;1 là Số cấp độ của cây cần trả về. Để lại NULL để trả về tất cả các cấp độ.
+      //thực tế ở đây trong vocabulary type palce hoặc category thì chưa có cha nào, sau khi getchild thì mới lấy con, khi đó sẽ rõ cha của nó là ai
+      //và vấn đề là ta return ra data chứ ko return allcategories, tức ta cần return 1 mảng ấy
       $data = array();
       foreach($allCategories as $key => $rs) {
         $data[$key]->id = $rs->tid;
         $data[$key]->name = $rs->name;
-        $data[$key]->children = _getChild(2, $rs->tid); //cái này ứng với việc taxonomy_get_tree có số 1, tức là trường hợp của mình 1 location có thể chứa 1 hoặc nhiều loaction nhỏ hơn ở bên trong nên làm vậy
+        $data[$key]->children = _getChild(2, $rs->tid); //tạo và lấy cây con
+        //cái này ứng với việc taxonomy_get_tree có số 1 thay vì null, nếu là null thì term con sẽ trả 2 lần trong cả getchild và $data, tức là trường hợp của mình 1 location có thể chứa 1 hoặc nhiều loaction nhỏ hơn ở bên trong nên làm vậy
       }
       return _showMessage_api(200, "Get category thành công ", $data);
       break;
     case "GetLocationInfoById":
       $locationID = $_POST['locationId'];
-      $result = views_get_view_result('nodefunction', 'getlocationinfobyid', $locationID);
+      $result = views_get_view_result('nodefunction', 'getlocationinfobyid', $locationID); //lấy ra thông tin view
       $data = new stdClass();
       foreach($result as $key => $rs) {
         $nid = $rs->nid;
-        $node = node_load($nid);
+        $node = node_load($nid); //lấy bản ghi trong bảng node và trả về có id là $nid
         $data->id = $node->field_location_id['und'][0]['value'];
         $data->blockID = node_load($node->field_3d_space['und'][0]['nid'])->field_sessionid['und'][0]['value'];
         $data->name = $node->title;
@@ -81,6 +122,7 @@ function custom_api() {
         $data[$key]->name = $node->title;
         $data[$key]->location = $node->field_floor['und'][0]['value'];
         $data[$key]->category->cid = $node->field_category['und'][0]['tid'];
+        //dùng để tải thông tin chi tiết của một term thuộc loại vocabulary từ csdl, với $tid là trường bắt buộc là id của term cần lấy
         $data[$key]->category->name = taxonomy_term_load($node->field_category['und'][0]['tid'])->name;
         $data[$key]->type->cid = $node->field_type_space['und'][0]['tid'];
         $data[$key]->type->name = taxonomy_term_load($node->field_type_space['und'][0]['tid'])->name;
@@ -91,7 +133,11 @@ function custom_api() {
       break;
     case "SearchStores":
       $_GET['title'] = $_POST['query'];
-      $result = views_get_view_result('nodefunction', 'getlocationinfosearch');
+      $SessionID = isset($_POST['BlockID']) ? $_POST['BlockID'] : "";
+      if($SessionID == "")
+        $result = views_get_view_result('nodefunction', 'getlocationinfosearch');
+      else
+        $result = views_get_view_result('nodefunction', 'getlocationinfosearchbyblockid',$SessionID);
       $data = array();
       foreach($result as $key => $rs) {
         $nid = $rs->nid;
@@ -108,9 +154,13 @@ function custom_api() {
       return _showMessage_api(200, "Thành công", $data);
       break;
     case 'GetStoresByCategory':
-      $cid = $_POST['category'];
-      $result = views_get_view_result('nodefunction', 'getlocationinfosearch', $cid);
-      $data = array();
+        $cid = $_POST['category'];
+        $SessionID = isset($_POST['BlockID']) ? $_POST['BlockID'] : "";
+        if($SessionID == "")
+          $result = views_get_view_result('nodefunction', 'getlocationinfosearch', $cid);
+        else
+          $result = views_get_view_result('nodefunction', 'getlocationinfosearchbyblockid', $SessionID, $cid); 
+        $data = array();
       foreach($result as $key => $rs) {
         $nid = $rs->nid;
         $node = node_load($nid);
@@ -138,7 +188,7 @@ function custom_api() {
     case 'DeleteAnchoringTarget':
       $anchoringTargetId = $_POST['anchoringTargetId'];
       $getNodeData = views_get_view_result('nodefunction', 'getdynamicconent', $anchoringTargetId);
-      if(count($getNodeData) > 0) {
+      if(count($getNodeData) > 0) { //tại sao ko phải là chech tồn tại, à chắc a cũng quên kiểu dữ liệu trả về là cái gì, chỉ nhớ là mảng
         $nid = $getNodeData[0]->nid;
         //$node = node_load($nid);
         node_delete($nid);
@@ -148,12 +198,12 @@ function custom_api() {
       }
       break;
     case 'GetBlockAnchoringTargetsData':
+        //chỗ này ý là response type: json trả về danh sách các AnchoringTarget của block gồm id và dữ liệu của target
       $SessionID = $_POST['BlockID'];
       $SpaceGet = views_get_view_result('nodefunction', 'get3dspace', $SessionID);
       if(count($SpaceGet) > 0) {
         $spaceId = $SpaceGet[0]->nid;
         $dataList = new stdClass();
-        //$dataList->id = $SessionID;
         $dataList->id = $SessionID;
         $dataList->targets = array();
         $getNodeData = views_get_view_result('nodefunction', 'getalldynamicconent', $spaceId);
@@ -177,6 +227,10 @@ function custom_api() {
           $anchoringTargetData->animation = $node->field_animation_['und'][0]['value'];
           $anchoringTargetData->media->name = $node->field_name['und'][0]['value'];
           $anchoringTargetData->media->url = $node->field_url['und'][0]['value'];
+
+          $anchoringTargetData->media->urlSize = _getSize($node->field_url['und'][0]['value']);
+          $anchoringTargetData->media->urlSizeFormated = _minio_format_size($anchoringTargetData->media->urlSize);
+
           $anchoringTargetData->media->Type = $node->field_type['und'][0]['value'];
           $anchoringTargetData->media->id = 0;
           $dataList->targets[$key] = $anchoringTargetData;
@@ -211,6 +265,8 @@ function custom_api() {
         $anchoringTargetData->animation = $node->field_animation_['und'][0]['value'];
         $anchoringTargetData->media->name = $node->field_name['und'][0]['value'];
         $anchoringTargetData->media->url = $node->field_url['und'][0]['value'];
+        $anchoringTargetData->media->urlSize = _getSize($node->field_url['und'][0]['value']);
+        $anchoringTargetData->media->urlSizeFormated = _minio_format_size($anchoringTargetData->media->urlSize);
         $anchoringTargetData->media->Type = $node->field_type['und'][0]['value'];
         $anchoringTargetData->media->id = 0;
         return _showMessage_api(200, "Lấy thông tin thành công AnchoringTarget ".$anchoringTargetId, $anchoringTargetData);
@@ -514,4 +570,41 @@ function _showMessage_api($statusCode, $message, $data = NULL) {
   $return['message'] = $message;
   $return['data'] = $data;
   return drupal_json_output($return);
+}
+
+**
+ * Implementation of hook_block_info
+ */
+function custom_block_info() {
+  $blocks = array();
+  $blocks['deploy_release'] = array(
+    'info' => t('Deploy release'),
+  );
+  return $blocks;
+}
+
+
+/**
+ * Implementation of hook_block_view
+ */
+function custom_block_view($delta = '') {
+  $block = array();
+  switch ($delta) {
+    case 'deploy_release':
+      $block['content'] = custom_build_block_deploy_release();
+      break;
+
+  }
+  return $block;
+
+  //10.61.243.201
+}
+
+function custom_build_block_deploy_release() {
+  $output = '';
+  $output .= "RELEASE_DOMAIN: ". getenv('cc')." | ";
+  $output .= "RELEASE_COMMIT: ". getenv('RELEASE_COMMIT')." | ";
+  $output .= "RELEASE_TAG: ". getenv('RELEASE_TAG')." | ";
+  $output .= "RELEASE_MESSAGE: ". getenv('RELEASE_MESSAGE');
+  return $output;
 }
