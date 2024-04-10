@@ -1,3 +1,5 @@
+https://nuhado.co/
+https://ireviewsach.com/
 admin_menu
 admin_views
 backup_migrate
