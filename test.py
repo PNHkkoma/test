@@ -1,3 +1,11 @@
+phân tích toán học cho thuật toán k-means
+https://pages.github.com/
+https://railway.app/new
+https://docs.netlify.com/
+https://www.uhostfull.com/free-hosting.php
+
+
+
 https://nuhado.co/
 https://ireviewsach.com/
 admin_menu
