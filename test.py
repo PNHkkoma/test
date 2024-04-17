@@ -4,6 +4,8 @@ https://railway.app/new
 https://docs.netlify.com/
 https://www.uhostfull.com/free-hosting.php
 
+https://www.youtube.com/watch?v=j1IbfQrT2Cs
+
 
 
 https://nuhado.co/
