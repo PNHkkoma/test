@@ -6,6 +6,10 @@ https://www.uhostfull.com/free-hosting.php
 
 https://www.youtube.com/watch?v=j1IbfQrT2Cs
 
+https://www.youtube.com/@codekaratetutorials/videos link youtube có vẻ hay ho về drupal
+https://www.youtube.com/@templatemonster/playlists một trang web câm như hến chả hiểu từ đâu ra, có lẽ sẽ có ích
+https://www.youtube.com/@buildamodule một lish chi tiến vl, nhưng cũng có thể thấy drupal nó lỗi thời vl thế nào
+https://www.youtube.com/@buildamodule trang web có vẻ ko tín lắm khi các video tương đối ngắn và sơ sài, không có quá nhiều ứng dụng
 
 
 https://nuhado.co/
