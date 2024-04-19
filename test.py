@@ -12,6 +12,15 @@ https://www.youtube.com/@buildamodule một lish chi tiến vl, nhưng cũng có
 https://www.youtube.com/@buildamodule trang web có vẻ ko tín lắm khi các video tương đối ngắn và sơ sài, không có quá nhiều ứng dụng
 
 
+chuẩn bị tất cả nhứng thứ sẽ làm trong thứ 6, từ nhỏ nhất, dơn giản nhất, giải trí nhất tới trọng đại nhất buộc phải làm
+- liên hệ với linh hỏi thăm dự án data, có vẻ c ấy cũng chưa bắt đầu
+- mở lại các dự án về thương mại điện tử? dù cho nó đã quá thừa kẻ muốn kiếm tiền?
+- chắc chắn phải hoàn thành yêu cầu của thầy về đồ án rồi, các video sẽ rất hữu dụng
+ - nào nào, dự án web đã bỏ ngỏ quá lâu rồi, tại sao giờ vẫn chưa thấy làm?
+- ồ, chuẩn bị chủ đề tiếng anh gia đình để nói với zany nữa, hmmm
+- một góc thư thái để đọc sách? hmmm...cần dậy sớm mới có không khí và nhiệt độ tuyệt vời
+- rèn luyện khả năng tập trung...không được đa việc cùng lúc! đo mới là cách rèn tư duy tốt nhất!
+
 https://nuhado.co/
 https://ireviewsach.com/
 admin_menu
