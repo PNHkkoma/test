@@ -12,9 +12,22 @@ https://www.youtube.com/@buildamodule một lish chi tiến vl, nhưng cũng có
 https://www.youtube.com/@buildamodule trang web có vẻ ko tín lắm khi các video tương đối ngắn và sơ sài, không có quá nhiều ứng dụng
 
 
+https://d-nb.info/1221936638/34 đây có vẻ chính là cái file giải thích cho hồi quy tuyến tính bị cắt đi của cái video sư phạm việt nam
+https://onlinelibrary.wiley.com/doi/full/10.1111/biom.13465 || A transformation-free linear regression for compositional outcomes and predictors || cái này có vẻ cũng tạm được khi liên quan cả ới hồi quy và dữ liệu da hợp, khá ngắn gọn và ví dụ cũng cụ thể
+https://is.muni.cz/do/rect/habilitace/1431/Hron/habilitace/7_Hron_et_al__2012_.pdf || Linear regression with compositional explanatory variables || có thể tham khảo thêm cái này, mặc dù nó loằng ngoằng khó hiểu hơn
+https://cran.r-project.org/web/packages/Compositional/Compositional.pdf || thư viện sử dụng cho R, có vẻ không cần python nè
+https://arxiv.org/pdf/2112.14865.pdf cái này thực sự thì kha khá ngắn và ít thông tin như có vẻ nó sẽ có quy trình hợp với ý tưởng của thầy, nhưng có vẻ cấp số nhân ở đây ko dc hợp lý lắm...
+https://www.york.ac.uk/media/economics/documents/hedg/workingpapers/2023/2316.pdf đây có lẽ là 1 phần ứng dụng của 1 bài nào đó bên trên, ko có nhiều ý nghĩa lý thuyết lắm
+https://www.ncbi.nlm.nih.gov/pmc/articles/PMC9041651/ cái này, có vẻ cũng ko có cái gì mới hơn so với những cái bên trên hmmm...ít nhất thì ví dụ khá dễ nhìn
+http://file.statistik.tuwien.ac.at/filz/papers/2011JApplStats.pdf || Linear regression with compositional explanatory variables || hmmm...bí quá thì đọc, vì có vẻ nó cũng có cùng ý tưởng với mấy cái trên
+https://mpra.ub.uni-muenchen.de/67868/1/MPRA_paper_67868.pdf ||Regression analysis with compositional data containing zero values|| cái này có vẻ cũng trùng ý tưởng nhiều này, hmmm...
+file:///C:/Users/Administrator/Downloads/matthias,+Journal+manager,+mueller_edited.pdf || Interpretation of Compositional Regression with Application to Time Budget Analysis || cái này rất nhiều toán học nhưng lại rất ít khả năng dùng vì ko thấy cthuc CoDA trong đó 
+
+https://arxiv.org/search/?query=compositional+data&searchtype=all&source=header || trang web của đại học cornell
+
 chuẩn bị tất cả nhứng thứ sẽ làm trong thứ 6, từ nhỏ nhất, dơn giản nhất, giải trí nhất tới trọng đại nhất buộc phải làm
-- liên hệ với linh hỏi thăm dự án data, có vẻ c ấy cũng chưa bắt đầu
-- mở lại các dự án về thương mại điện tử? dù cho nó đã quá thừa kẻ muốn kiếm tiền?
+- liên hệ với linh hỏi thăm dự án data, có vẻ c ấy cũng chưa bắt đầu (c ấy định dấu rồi, có vẻ h chỉ muốn chill chill làm việc thôi)
+- mở lại các dự án về thương mại điện tử? dù cho nó đã quá thừa kẻ muốn kiếm tiền? (hmmm...có muốn làm nữa ko đây?)
 - chắc chắn phải hoàn thành yêu cầu của thầy về đồ án rồi, các video sẽ rất hữu dụng
  - nào nào, dự án web đã bỏ ngỏ quá lâu rồi, tại sao giờ vẫn chưa thấy làm?
 - ồ, chuẩn bị chủ đề tiếng anh gia đình để nói với zany nữa, hmmm
