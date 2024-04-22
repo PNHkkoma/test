@@ -20,6 +20,8 @@ chuẩn bị tất cả nhứng thứ sẽ làm trong thứ 6, từ nhỏ nhất
 - ồ, chuẩn bị chủ đề tiếng anh gia đình để nói với zany nữa, hmmm
 - một góc thư thái để đọc sách? hmmm...cần dậy sớm mới có không khí và nhiệt độ tuyệt vời
 - rèn luyện khả năng tập trung...không được đa việc cùng lúc! đo mới là cách rèn tư duy tốt nhất!
+rồi dell làm đc cái gì luôn...súc vật
+
 
 https://nuhado.co/
 https://ireviewsach.com/
