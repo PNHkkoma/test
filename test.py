@@ -15,15 +15,24 @@ https://www.youtube.com/@buildamodule trang web có vẻ ko tín lắm khi các 
 https://d-nb.info/1221936638/34 đây có vẻ chính là cái file giải thích cho hồi quy tuyến tính bị cắt đi của cái video sư phạm việt nam
 https://onlinelibrary.wiley.com/doi/full/10.1111/biom.13465 || A transformation-free linear regression for compositional outcomes and predictors || cái này có vẻ cũng tạm được khi liên quan cả ới hồi quy và dữ liệu da hợp, khá ngắn gọn và ví dụ cũng cụ thể
 https://is.muni.cz/do/rect/habilitace/1431/Hron/habilitace/7_Hron_et_al__2012_.pdf || Linear regression with compositional explanatory variables || có thể tham khảo thêm cái này, mặc dù nó loằng ngoằng khó hiểu hơn
+
 https://cran.r-project.org/web/packages/Compositional/Compositional.pdf || thư viện sử dụng cho R, có vẻ không cần python nè
+https://search.r-project.org/CRAN/refmans/complmrob/html/00Index.html || có vẻ cũng là 1 tài liệu về R
+https://rpubs.com/EmilOWK/compositional_data || 1 ví dụ về R nhưng có vẻ khó vì ko biết bô dữ liệu ở đâu, bối cảnh của nó là gì và ý nghĩa khi chạy xong R là gì.
+https://github.com/muellsen/PCM/tree/master/examples/LogContrastModels || bộ dữ liệu trong cái tài liệu phụ mà ông giáo gửi
+
 https://arxiv.org/pdf/2112.14865.pdf cái này thực sự thì kha khá ngắn và ít thông tin như có vẻ nó sẽ có quy trình hợp với ý tưởng của thầy, nhưng có vẻ cấp số nhân ở đây ko dc hợp lý lắm...
 https://www.york.ac.uk/media/economics/documents/hedg/workingpapers/2023/2316.pdf đây có lẽ là 1 phần ứng dụng của 1 bài nào đó bên trên, ko có nhiều ý nghĩa lý thuyết lắm
 https://www.ncbi.nlm.nih.gov/pmc/articles/PMC9041651/ cái này, có vẻ cũng ko có cái gì mới hơn so với những cái bên trên hmmm...ít nhất thì ví dụ khá dễ nhìn
 http://file.statistik.tuwien.ac.at/filz/papers/2011JApplStats.pdf || Linear regression with compositional explanatory variables || hmmm...bí quá thì đọc, vì có vẻ nó cũng có cùng ý tưởng với mấy cái trên
 https://mpra.ub.uni-muenchen.de/67868/1/MPRA_paper_67868.pdf ||Regression analysis with compositional data containing zero values|| cái này có vẻ cũng trùng ý tưởng nhiều này, hmmm...
 file:///C:/Users/Administrator/Downloads/matthias,+Journal+manager,+mueller_edited.pdf || Interpretation of Compositional Regression with Application to Time Budget Analysis || cái này rất nhiều toán học nhưng lại rất ít khả năng dùng vì ko thấy cthuc CoDA trong đó 
+https://repositorio.ufscar.br/bitstream/handle/ufscar/11034/v__final_ufscar.pdf?sequence=1&isAllowed=y || Penalized regression methods for compositional data || hmm... cấn cấn chỗ bị phạt nhỉ...nhưng có vẻ sẽ dùng khá tốt đó, có điều mọi thứ cũng có vẻ vắn tắt, cthuc nhiều và khó hiểu
+https://www.semanticscholar.org/paper/Multiple-linear-regression-modeling-for-data-Wang-Shangguan/c64167e81edb891fe1ab519e022a5ef42f9c1079 || nào rảnh tìm kiếm trong web này xem có tài liệu nào không
+
 
 https://arxiv.org/search/?query=compositional+data&searchtype=all&source=header || trang web của đại học cornell
+https://www.jstor.org/ ||web cung cấp cái gì đó, rảnh thì vô ko thì thôi
 
 chuẩn bị tất cả nhứng thứ sẽ làm trong thứ 6, từ nhỏ nhất, dơn giản nhất, giải trí nhất tới trọng đại nhất buộc phải làm
 - liên hệ với linh hỏi thăm dự án data, có vẻ c ấy cũng chưa bắt đầu (c ấy định dấu rồi, có vẻ h chỉ muốn chill chill làm việc thôi)
