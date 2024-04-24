@@ -1,3 +1,5 @@
+C:\Users\Administrator/.ssh/id_rsa
+
 phân tích toán học cho thuật toán k-means
 https://pages.github.com/
 https://railway.app/new
