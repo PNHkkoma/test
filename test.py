@@ -1,4 +1,5 @@
 C:\Users\Administrator/.ssh/id_rsa
+(C:\Users\dell/.ssh/id_rsa)
 10.*;192.*;172.*;educationxr.vn;*.viettel.vn
 thùy dung
 
