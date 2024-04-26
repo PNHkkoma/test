@@ -1,0 +1,40 @@
+Khi thiết kế Microservices Architecture, developer cần tuân thủ 6 điều sau để xây dựng được kiến trúc chất lượng:
+
+a. Single Responsibility Principle (SRP): Nguyên tắc của một service là có phạm vi và chức năng giới hạn, tập trung vào một nhiệm vụ để quá trình phát triển và triển khai dịch vụ trở nên nhanh chóng hơn.
+
+b. Trong quá trình thiết kế, bạn nên xác định và giới hạn các services theo chức năng nghiệp vụ thực tế.
+
+3. Đảm bảo microservices có thể phát triển và triển khai độc lập thành từng module.
+
+4. Mục tiêu của thiết kế của microservices sẽ phục vụ một nghiệp vụ chứ không chỉ đơn giản làm các dịch vụ nhỏ hơn. 
+
+5. Kích thước hợp lý của một service là kích thước đủ để đáp ứng yêu cầu của một chức năng trong hệ thống.
+
+6. Một microservice không nên có quá nhiều hàm hay chức năng hỗ trợ xung quanh và định dạng thông báo/ messaging đơn giản.
+
+Dựng Golang microservice boilerplate theo clean architecture (viblo.asia)
+ví dụ tiếng việt về dựng microservice theo kiến trúc sạch, trong sáng (không quá đầy đủ)
+
+golang-standards/project-layout: Standard Go Project Layout (github.com)
+kiến trúc project golang tiêu chuẩn
+
+How To Build A Containerized Microservice in Golang: A Step-by-step Guide with Example Use-Case - DEV Community
+các bước xây dựng microservice dùng golang cho một ứng dụng cloud native (chưa đọc xong, không sử dụng gin gonic, sử dụng sql postgres thay vì mongo)
+watermark-service/README.md at master · velotiotech/watermark-service (github.com)
+project sau khi được dựng, readme là yêu cầu cụ thể của project clound native, 
+API gateway được đặt trong các tệp http của từng service, tức API gateway nhúng trong từng service
+tương tác gRPC là đồng bộ vì  trong phương thức Get, ServiceStatus, Add, Update, và Remove, mỗi phương thức đều gọi các endpoint tương ứng thông qua gRPC và đợi kết quả trả về trước khi trả về kết quả của chính nó.
+
+kit module - github.com/go-kit/kit - Go Packages
+go-kit/kit: A standard library for microservices. (github.com)
+web golang về pakage go kit, 1 pakage chuyên phục vụ để xây dựng microservice, thường sử dụng gRPC (cốt lõi từ protobuf), thường thấy trong việc tạo các endpoint của từng service nhận data, và cũng đc sử dụng trong các API gateways
+
+go-kit/examples: Example Go kit services (github.com)
+một project ví dụ sử dụng go kit, có api gateway cụ thể tự setup ko cần traefik, tức là API gateway riêng lẻ
+
+raycad/go-microservices: Golang Microservices Example (github.com)
+ví dụ cụ thể với gingonic, mongodb và triển khai microservice nhưng ko dùng go kit, sử dụng cách truyền messaging giữa các service (RESTapi)
+dùng traefik để tạo API gateway, đang hiểu là cái này sẽ setup api gateway và điều hướng request api
+
+go-micro/go-micro: A Go microservices framework (github.com)
+một framework dùng để xây dựng microservice tương tác bất đồng bộ sử dụng pub-sub, nhiều khả năng sẽ được triển khai
