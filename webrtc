@@ -1,0 +1,35 @@
+webrtc khác với websocket hay RTMP (Real-Time Messaging Protocol-được sử dụng bởi facebook, ins, youtube,...)
+trang web so sánh 2 cái webrtc với rtmp nè https://castr.com/blog/webrtc-vs-rtmp/
+có vẻ như www.studystream cũng sử dụng webrtc do rất niều đặc điểm mà trải nghiệm của mình nhận thấy nó giống với webrtc
+một sự so sánh nhỏ giữa websocket và webrtc: https://ably.com/topic/webrtc-vs-websocket, có vẻ như websocket có độ trễ hơn do phải liên kết thông qua server
+còn webrtc thì có thể trực tiếp liên kêt các user, maybe trong video mình đang code https://www.youtube.com/watch?v=QsH8FL0952k nó giải thích thế
+
+WebRTC và RTMP có những ưu điểm và hạn chế riêng, và việc lựa chọn giữa chúng phụ thuộc vào mục đích sử dụng cụ thể của bạn. Dưới đây là một số điểm so sánh giữa hai giao thức này:
+WebRTC:
+Ưu điểm:
+Tốc độ: WebRTC nhanh hơn và được tích hợp trực tiếp trong trình duyệt.
+Hỗ trợ trên nhiều nền tảng: WebRTC hoạt động trên tất cả các trình duyệt hiện đại và cả trên các nền tảng di động như Android và iOS.
+Latency thấp: WebRTC cung cấp thời gian trễ dưới 500 mili giây, phù hợp cho giao tiếp thời gian thực.
+Hạn chế:
+Không tối ưu hóa cho chất lượng: WebRTC không tập trung vào chất lượng video mà tập trung vào thời gian trễ.
+Không phù hợp cho việc xây dựng OBS-like client: WebRTC không hỗ trợ việc xử lý video trực tiếp trước khi gửi lên máy chủ streaming.
+RTMP:
+Ưu điểm:
+Chất lượng cao: RTMP thích hợp cho việc truyền tải video chất lượng cao, ví dụ như các sự kiện trực tiếp như concert âm nhạc hoặc hội nghị.
+Không cần đệm: RTMP không yêu cầu đệm trước khi truyền tải.
+Hạn chế:
+Không hỗ trợ trên web: RTMP không hoạt động trên web, điều này làm cho việc phát triển ứng dụng trên web trở nên khó khăn.
+
+
+webrtc sử dụng udp để truyền dữ liệu, nó rất nhanh nhưng không phải giao thức đáng tin cậy để truyền dữ liệu, vì vậy webrtc đã tích hợp thêm nhiều thứ để tăng bảo mật:
+WebRTC sử dụng UDP (User Datagram Protocol) để truyền tin vì có một số ưu điểm và hạn chế(bing AI):
+Ưu điểm của UDP:
+Tốc độ: UDP nhanh hơn so với TCP (Transmission Control Protocol) vì nó không có cơ chế kiểm tra lỗi và đảm bảo gói tin đến đích.
+Không đảm bảo gói tin đến đích: UDP không đợi xác nhận từ máy nhận trước khi gửi gói tin tiếp theo. Điều này giúp giảm độ trễ và làm cho việc truyền thông thời gian thực (như video và âm thanh) trở nên hiệu quả hơn.
+Hạn chế của UDP:
+Không đảm bảo tính toàn vẹn và đúng thứ tự: UDP không kiểm tra lỗi hoặc sắp xếp lại gói tin. Nếu một gói tin bị mất hoặc đến ngoài thứ tự, không có cơ chế để khắc phục.
+Không an toàn: UDP không cung cấp mã hóa hoặc xác thực, làm cho nó dễ bị tấn công. Tuy nhiên, trong trường hợp của WebRTC, việc mã hóa và bảo mật được đảm bảo bằng Secure Real Time Protocol (SRTP) và các tiêu chuẩn bảo mật khác13.
+Vì vậy, mặc dù UDP nhanh và phù hợp cho truyền thông thời gian thực, nhưng nó không đảm bảo tính toàn vẹn và an toàn như TCPWebRTC sử dụng UDP để đảm bảo hiệu suất cao trong việc truyền tải âm thanh, video và dữ liệu thời gian thực, nhưng kết hợp với các tiêu chuẩn bảo mật để đảm bảo tính an toàn và đáng tin cậy
+
+một vài thông tin với golang và webrtc tìm hiểu đc trong link gitcode của webrtc trên goalng:
+
