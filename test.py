@@ -2,6 +2,7 @@ C:\Users\Administrator/.ssh/id_rsa
 (C:\Users\dell/.ssh/id_rsa)
 10.*;192.*;172.*;educationxr.vn;*.viettel.vn
 thùy dung
+sếp Hạnh
 
 phân tích toán học cho thuật toán k-means
 https://pages.github.com/
@@ -25,6 +26,7 @@ https://cran.r-project.org/web/packages/Compositional/Compositional.pdf || thư 
 https://search.r-project.org/CRAN/refmans/complmrob/html/00Index.html || có vẻ cũng là 1 tài liệu về R
 https://rpubs.com/EmilOWK/compositional_data || 1 ví dụ về R nhưng có vẻ khó vì ko biết bô dữ liệu ở đâu, bối cảnh của nó là gì và ý nghĩa khi chạy xong R là gì.
 https://github.com/muellsen/PCM/tree/master/examples/LogContrastModels || bộ dữ liệu trong cái tài liệu phụ mà ông giáo gửi
+https://zlib.pub/download/geostatistics-for-compositional-data-with-r-use-r-24tneuvforeg?hash=bc956cdb5dedf1f396ceafb3b6c62012 //trang 236 là cái gì đó
 
 https://arxiv.org/pdf/2112.14865.pdf cái này thực sự thì kha khá ngắn và ít thông tin như có vẻ nó sẽ có quy trình hợp với ý tưởng của thầy, nhưng có vẻ cấp số nhân ở đây ko dc hợp lý lắm...
 https://www.york.ac.uk/media/economics/documents/hedg/workingpapers/2023/2316.pdf đây có lẽ là 1 phần ứng dụng của 1 bài nào đó bên trên, ko có nhiều ý nghĩa lý thuyết lắm
@@ -34,6 +36,68 @@ https://mpra.ub.uni-muenchen.de/67868/1/MPRA_paper_67868.pdf ||Regression analys
 file:///C:/Users/Administrator/Downloads/matthias,+Journal+manager,+mueller_edited.pdf || Interpretation of Compositional Regression with Application to Time Budget Analysis || cái này rất nhiều toán học nhưng lại rất ít khả năng dùng vì ko thấy cthuc CoDA trong đó 
 https://repositorio.ufscar.br/bitstream/handle/ufscar/11034/v__final_ufscar.pdf?sequence=1&isAllowed=y || Penalized regression methods for compositional data || hmm... cấn cấn chỗ bị phạt nhỉ...nhưng có vẻ sẽ dùng khá tốt đó, có điều mọi thứ cũng có vẻ vắn tắt, cthuc nhiều và khó hiểu
 https://www.semanticscholar.org/paper/Multiple-linear-regression-modeling-for-data-Wang-Shangguan/c64167e81edb891fe1ab519e022a5ef42f9c1079 || nào rảnh tìm kiếm trong web này xem có tài liệu nào không
+https://d-nb.info/1221936638/34 cái này tuy ko có code nhưng có vẻ các hình vẽ biểu đồ khá đẹp
+
+tài liệu tiếng trung: 使用线性回归的源代码组合数据  || 使用 Python 进行成分数据分析
+https://blog.csdn.net/weixin_43329700/article/details/107811778 //chạy python
+https://zhuanlan.zhihu.com/p/561593013
+
+bộ này: https://www.kaggle.com/datasets/theworldbank/education-statistics/data
+có những cái này: 
+https://www.kaggle.com/code/ta9nom/exercise-partial-plots
+https://www.kaggle.com/code/morenovanton/determining-the-value-of-the-correlation-of-econom
+https://www.kaggle.com/code/retorikal/predicting-sickness-with-weather-data-using-lstm
+https://www.kaggle.com/code/kittishane/education-analysis
+
+bộ này: https://www.kaggle.com/datasets/mdmahmudulhasansuzan/students-adaptability-level-in-online-education/code
+có những cái này:
+https://www.kaggle.com/code/nkitgupta/feature-engineering-and-feature-selection
+
+bộ này: kaggle.com/datasets/noriuk/us-educational-finances/code
+có những cái này: 
+https://www.kaggle.com/code/jimmyoboni/us-education-finance-eda-python
+https://www.kaggle.com/code/kevinjwright/linear-regression-with-l2-regularization
+
+bộ này: https://www.kaggle.com/datasets/kaggle/college-scorecard/code?datasetId=11&sortBy=voteCount
+có cái này hơi lởm: https://www.kaggle.com/code/haylmg/predicting-repayment-of-education-loans
+https://www.kaggle.com/code/jpico6/predicting-post-graduation-earnings
+
+bộ này: https://www.kaggle.com/datasets/thedevastator/uncovering-wage-disparities-in-pennsylvania-s-hi/code
+cái này giống kiểu so sánh các ml, ko tập trung hồi quy: https://www.kaggle.com/code/raphaelmarconato/education-wages-eda-and-machine-learning-76
+
+bộ này: https://www.kaggle.com/datasets/gianinamariapetrascu/survey-on-students-perceptions-of-ai-in-education/code?datasetId=3013736&sortBy=voteCount
+có một chút trong 1 câu hỏi của: https://www.kaggle.com/code/robertdavie/students-perceptions-of-ai-survey-analysis
+
+bộ này: https://www.kaggle.com/datasets/iamsouravbanerjee/inequality-in-education-around-the-world/code?datasetId=3631362&sortBy=voteCount
+có cái này:
+https://www.kaggle.com/code/jetcortejo/eda-on-countries-with-improving-worsening-equality
+https://www.kaggle.com/code/uom190346a/exploring-data-visualization-with-seaborn
+
+bộ này: https://www.kaggle.com/datasets/danbraswell/temporary-us-births/code?datasetId=3234814&sortBy=voteCount
+có cái này hay:
+https://www.kaggle.com/code/sanjay277/us-mothers-baby-birth-analysis-linear-regression
+
+bộ này: https://www.kaggle.com/datasets/larsen0966/student-performance-data-set/code?datasetId=573975&sortBy=voteCount
+có cái này: 
+https://www.kaggle.com/code/ghayurhamza/portuguese-gradeprediction
+https://www.kaggle.com/code/mahmoudelmansy/students-grades-preprocessing (hơi lởm)
+https://www.kaggle.com/code/mostafafathy4869/student-performance-prediction (cũng là so sánh)
+https://www.kaggle.com/code/aryanmsr/complete-ml-analysis (a litter)
+https://www.kaggle.com/code/evanz006/predicting-academic-performance-using-regression
+https://www.kaggle.com/code/sachsene/feature-engineering-and-sgdreg-with-regularization
+
+bộ này: https://www.kaggle.com/datasets/whenamancodes/student-performance/code?datasetId=2479341&sortBy=voteCount
+có cái này:
+https://www.kaggle.com/code/sirilavanyamalladi/student-performance-regression
+
+
+
+
+
+
+
+
+
 
 
 https://arxiv.org/search/?query=compositional+data&searchtype=all&source=header || trang web của đại học cornell
