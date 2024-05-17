@@ -1,5 +1,6 @@
 https://sci-hub.se/10.1016/j.neucom.2013.05.025
 https://d-nb.info/1221936638/34
+https://moscow.sci-hub.se/2326/b9cdc4a37bbb5cdfdaefcd9dd05d6166/wang2013.pdf#page=5&zoom=100,0,0
 
 C:\Users\Administrator/.ssh/id_rsa
 (C:\Users\dell/.ssh/id_rsa)
