@@ -2,6 +2,11 @@ https://sci-hub.se/10.1016/j.neucom.2013.05.025
 https://d-nb.info/1221936638/34
 https://moscow.sci-hub.se/2326/b9cdc4a37bbb5cdfdaefcd9dd05d6166/wang2013.pdf#page=5&zoom=100,0,0
 
+https://www.researchgate.net/profile/Salvador-Linares-Mustaros/publication/380395488_A_New_Methodological_Proposal_for_Classifying_Firms_According_to_the_Similarity_of_Their_Financial_Structures_Based_on_Combining_Compositional_Data_with_Fuzzy_Clustering/links/663a5d0e7091b94e93f9014d/A-New-Methodological-Proposal-for-Classifying-Firms-According-to-the-Similarity-of-Their-Financial-Structures-Based-on-Combining-Compositional-Data-with-Fuzzy-Clustering.pdf
+https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0268438
+
+
+
 trendyswagsnap@gmail.com
 leonadoMacrus
 hung12A52001
