@@ -5,6 +5,13 @@ https://moscow.sci-hub.se/2326/b9cdc4a37bbb5cdfdaefcd9dd05d6166/wang2013.pdf#pag
 https://www.researchgate.net/profile/Salvador-Linares-Mustaros/publication/380395488_A_New_Methodological_Proposal_for_Classifying_Firms_According_to_the_Similarity_of_Their_Financial_Structures_Based_on_Combining_Compositional_Data_with_Fuzzy_Clustering/links/663a5d0e7091b94e93f9014d/A-New-Methodological-Proposal-for-Classifying-Firms-According-to-the-Similarity-of-Their-Financial-Structures-Based-on-Combining-Compositional-Data-with-Fuzzy-Clustering.pdf
 https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0268438
 
+https://www.annualreviews.org/content/journals/10.1146/annurev-statistics-042720-124436 ||bản của thầy dễ dàng copy hơn
+https://www.lyellcollection.org/doi/pdf/10.1144/gsl.sp.2006.264.01.01 || cái gì nhỉ...hmmm có vẻ cũng khá khó hiểu về lý thuyết
+http://www.leg.ufpr.br/lib/exe/fetch.php/pessoais%3Aabtmartins%3Aa_concise_guide_to_compositional_data_analysis.pdf ||khá khó để lấy, lý thuyết cũng lan man
+https://www.researchgate.net/publication/327387401_Compositional_Data_Analysis_in_Practice || hên xui lấy đc full text mà đọc
+https://arxiv.org/pdf/2201.05197 || thử cái này đi
+http://www.sediment.uni-goettingen.de/staff/tolosana/extra/CoDa.pdf || thử cái này xem
+
 
 
 trendyswagsnap@gmail.com
@@ -35,6 +42,7 @@ https://d-nb.info/1221936638/34 đây có vẻ chính là cái file giải thíc
 https://onlinelibrary.wiley.com/doi/full/10.1111/biom.13465 || A transformation-free linear regression for compositional outcomes and predictors || cái này có vẻ cũng tạm được khi liên quan cả ới hồi quy và dữ liệu da hợp, khá ngắn gọn và ví dụ cũng cụ thể
 https://is.muni.cz/do/rect/habilitace/1431/Hron/habilitace/7_Hron_et_al__2012_.pdf || Linear regression with compositional explanatory variables || có thể tham khảo thêm cái này, mặc dù nó loằng ngoằng khó hiểu hơn
 
+https://dougfenstermacher.com/blog/compositional-data-analysis ||code của Python
 https://cran.r-project.org/web/packages/Compositional/Compositional.pdf || thư viện sử dụng cho R, có vẻ không cần python nè
 https://search.r-project.org/CRAN/refmans/complmrob/html/00Index.html || có vẻ cũng là 1 tài liệu về R
 https://rpubs.com/EmilOWK/compositional_data || 1 ví dụ về R nhưng có vẻ khó vì ko biết bô dữ liệu ở đâu, bối cảnh của nó là gì và ý nghĩa khi chạy xong R là gì.
