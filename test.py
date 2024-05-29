@@ -63,65 +63,39 @@ tài liệu tiếng trung: 使用线性回归的源代码组合数据  || 使用
 https://blog.csdn.net/weixin_43329700/article/details/107811778 //chạy python
 https://zhuanlan.zhihu.com/p/561593013
 
-bộ này: https://www.kaggle.com/datasets/theworldbank/education-statistics/data
-có những cái này: 
-https://www.kaggle.com/code/ta9nom/exercise-partial-plots
-https://www.kaggle.com/code/morenovanton/determining-the-value-of-the-correlation-of-econom
-https://www.kaggle.com/code/retorikal/predicting-sickness-with-weather-data-using-lstm
-https://www.kaggle.com/code/kittishane/education-analysis
-
-bộ này: https://www.kaggle.com/datasets/mdmahmudulhasansuzan/students-adaptability-level-in-online-education/code
-có những cái này:
-https://www.kaggle.com/code/nkitgupta/feature-engineering-and-feature-selection
-
-bộ này: kaggle.com/datasets/noriuk/us-educational-finances/code
-có những cái này: 
-https://www.kaggle.com/code/jimmyoboni/us-education-finance-eda-python
-https://www.kaggle.com/code/kevinjwright/linear-regression-with-l2-regularization
-
-bộ này: https://www.kaggle.com/datasets/kaggle/college-scorecard/code?datasetId=11&sortBy=voteCount
-có cái này hơi lởm: https://www.kaggle.com/code/haylmg/predicting-repayment-of-education-loans
-https://www.kaggle.com/code/jpico6/predicting-post-graduation-earnings
-
-bộ này: https://www.kaggle.com/datasets/thedevastator/uncovering-wage-disparities-in-pennsylvania-s-hi/code
-cái này giống kiểu so sánh các ml, ko tập trung hồi quy: https://www.kaggle.com/code/raphaelmarconato/education-wages-eda-and-machine-learning-76
-
-bộ này: https://www.kaggle.com/datasets/gianinamariapetrascu/survey-on-students-perceptions-of-ai-in-education/code?datasetId=3013736&sortBy=voteCount
-có một chút trong 1 câu hỏi của: https://www.kaggle.com/code/robertdavie/students-perceptions-of-ai-survey-analysis
-
-bộ này: https://www.kaggle.com/datasets/iamsouravbanerjee/inequality-in-education-around-the-world/code?datasetId=3631362&sortBy=voteCount
-có cái này:
-https://www.kaggle.com/code/jetcortejo/eda-on-countries-with-improving-worsening-equality
-https://www.kaggle.com/code/uom190346a/exploring-data-visualization-with-seaborn
-
-bộ này: https://www.kaggle.com/datasets/danbraswell/temporary-us-births/code?datasetId=3234814&sortBy=voteCount
-có cái này hay:
-https://www.kaggle.com/code/sanjay277/us-mothers-baby-birth-analysis-linear-regression
-
-bộ này: https://www.kaggle.com/datasets/larsen0966/student-performance-data-set/code?datasetId=573975&sortBy=voteCount
-có cái này: 
-https://www.kaggle.com/code/ghayurhamza/portuguese-gradeprediction
-https://www.kaggle.com/code/mahmoudelmansy/students-grades-preprocessing (hơi lởm)
-https://www.kaggle.com/code/mostafafathy4869/student-performance-prediction (cũng là so sánh)
-https://www.kaggle.com/code/aryanmsr/complete-ml-analysis (a litter)
-https://www.kaggle.com/code/evanz006/predicting-academic-performance-using-regression
-https://www.kaggle.com/code/sachsene/feature-engineering-and-sgdreg-with-regularization
-
-bộ này: https://www.kaggle.com/datasets/whenamancodes/student-performance/code?datasetId=2479341&sortBy=voteCount
-có cái này:
-https://www.kaggle.com/code/sirilavanyamalladi/student-performance-regression
 
 
 
+https://arxiv.org/search/?query=compositional+data&searchtype=all&source=header || trang web của đại học cornell 3
+https://arxiv.org/pdf/2205.01158
+https://arxiv.org/pdf/2405.02551
+https://arxiv.org/pdf/2305.16842
+https://arxiv.org/pdf/2004.07881
+https://arxiv.org/pdf/1508.01913
+https://arxiv.org/pdf/2112.14865
+https://arxiv.org/pdf/2201.07945
+https://arxiv.org/pdf/1904.05636
+https://arxiv.org/pdf/2403.13544 (hơi khó sài)
+https://arxiv.org/pdf/2002.05137
+https://arxiv.org/pdf/1106.1451
+https://arxiv.org/pdf/2111.06617
+https://arxiv.org/pdf/1901.04935 (hình như ko phải đâu)
+https://arxiv.org/pdf/1506.04976
+https://arxiv.org/pdf/2007.00456
+https://arxiv.org/pdf/2201.02451
+https://arxiv.org/pdf/2110.07967
+https://arxiv.org/pdf/2012.10300
+https://arxiv.org/pdf/2201.05197
+https://arxiv.org/pdf/1705.03457
+https://arxiv.org/pdf/2110.12439
+https://arxiv.org/pdf/2111.08953
+https://arxiv.org/pdf/1512.05225
+https://arxiv.org/pdf/2106.05855
+https://arxiv.org/pdf/2007.06856 (khó sài)
+https://arxiv.org/pdf/1704.06150 (using k-mean)
+https://arxiv.org/pdf/1412.5848
 
 
-
-
-
-
-
-
-https://arxiv.org/search/?query=compositional+data&searchtype=all&source=header || trang web của đại học cornell
 https://www.jstor.org/ ||web cung cấp cái gì đó, rảnh thì vô ko thì thôi
 
 chuẩn bị tất cả nhứng thứ sẽ làm trong thứ 6, từ nhỏ nhất, dơn giản nhất, giải trí nhất tới trọng đại nhất buộc phải làm
