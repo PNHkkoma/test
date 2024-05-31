@@ -67,33 +67,34 @@ https://zhuanlan.zhihu.com/p/561593013
 
 
 https://arxiv.org/search/?query=compositional+data&searchtype=all&source=header || trang web của đại học cornell 3
-https://arxiv.org/pdf/2205.01158
-https://arxiv.org/pdf/2405.02551
-https://arxiv.org/pdf/2305.16842
-https://arxiv.org/pdf/2004.07881
-https://arxiv.org/pdf/1508.01913
-https://arxiv.org/pdf/2112.14865
-https://arxiv.org/pdf/2201.07945
-https://arxiv.org/pdf/1904.05636
-https://arxiv.org/pdf/2403.13544 (hơi khó sài)
-https://arxiv.org/pdf/2002.05137
-https://arxiv.org/pdf/1106.1451
-https://arxiv.org/pdf/2111.06617
-https://arxiv.org/pdf/1901.04935 (hình như ko phải đâu)
-https://arxiv.org/pdf/1506.04976
-https://arxiv.org/pdf/2007.00456
-https://arxiv.org/pdf/2201.02451
-https://arxiv.org/pdf/2110.07967
-https://arxiv.org/pdf/2012.10300
-https://arxiv.org/pdf/2201.05197
-https://arxiv.org/pdf/1705.03457
-https://arxiv.org/pdf/2110.12439
-https://arxiv.org/pdf/2111.08953
-https://arxiv.org/pdf/1512.05225
-https://arxiv.org/pdf/2106.05855
-https://arxiv.org/pdf/2007.06856 (khó sài)
-https://arxiv.org/pdf/1704.06150 (using k-mean)
-https://arxiv.org/pdf/1412.5848
+tài liệu archison: hmmm...khá khó hiểu
+https://arxiv.org/pdf/2205.01158 7 ( trực tiếp đi vào các chủ đề đa hợp và tóm tắt khá ngắn gọn, phần sau khá khó hiểu, là nâng cấp của CoDA cho không gian nào đó)
+https://arxiv.org/pdf/2405.02551 8 ( nói tới tầm ảnh hưởng của CoDA với ngày nay, tập trung đề xuất một kiểm định trung bình hai mẫu)
+https://arxiv.org/pdf/2305.16842 8.5 (tóm tắt ngắn gọn lý thuyết, tập trung vào phân tích tài chính kế toán, có phần kiểm định giả thuyết nhỏ liên quan hồi quy)
+https://arxiv.org/pdf/2004.07881 8.5 ( tóm tắt lý thuyết, kết hợp việc giải thích ý nghĩa và sử dụng kết quả, kếp hợp hồi quy tuyến tính)
+https://arxiv.org/pdf/1508.01913 8 (tóm tắt lý thuyết, sử dụng phương pháp hồi quy mới để giảm việc giá trị null gây ảnh hưởng) 
+https://arxiv.org/pdf/2112.14865 9 (tóm tắt lý thuyết, nêu ra các đặc điểm CoDA khá ổn, tập trung hồi quy và PCA, cố gắng loại bỏ giá trị 0)
+https://arxiv.org/pdf/2201.07945 7 (tóm tắt lý thuyết, tập trung phân tích chủ đề miễn dịch của con người)
+https://arxiv.org/pdf/1904.05636 7.5 (Tập trung vào việc áp dụng các log của CoDA cho việc PCA) 
+https://arxiv.org/pdf/2403.13544 (hơi khó sài 5:30) 7 (khó sài quá...)
+https://arxiv.org/pdf/2002.05137 8.5 (tóm tắt lý thuyết, tập trung vào cải tiến cho hồi quy tuyến tính bằng CoDA)
+https://arxiv.org/pdf/1106.1451 6.5 (tóm tắt lý thuyết, quá ngắn gọn và không mang nhiều thông tin)
+https://arxiv.org/pdf/2111.06617 7 (tóm tắt lý thuyết, tập trung áp dụng học đa nhiệm và CoDA)
+https://arxiv.org/pdf/1901.04935 (hình như ko phải đâu) (hình như ko liên quan)
+https://arxiv.org/pdf/1506.04976 7 (tóm tắt lý thuyết, cố gắng so sáng CoDA với EDA trong việc phân loại dữ liệu?)
+https://arxiv.org/pdf/2007.00456 7 (tóm tắt lý thuyết, cố gắng áp dụng kiểu phân tích thành phần độc lập ICA cho dữ liệu hợp thành)
+https://arxiv.org/pdf/2201.02451 8.5 (tóm tắt lý thuyết, có những nhận xét khá sâu về bài archison, giải thích cho bộ dữ liệu dân cư)
+https://arxiv.org/pdf/2110.07967 8 (tóm tắt lý thuyết, tập trung xây dựng, đánh giá và cải tiến CoDA cho không gian và hình học)
+https://arxiv.org/pdf/2012.10300 8 (tóm tắt lý thuyết, tập trung giải quyết các số 0 và mạng neron ANN với hồi quy)
+https://arxiv.org/pdf/2201.05197 9 (có vẻ một mô tả khá chi tiết, về hình thành phát triển CoDA của archison trong 40 năm)
+https://arxiv.org/pdf/1705.03457 7 (tóm tắt lý thuyết, áp dụng CoDA vào sử lý ảnh)
+https://arxiv.org/pdf/2110.12439 7.5 (tập trung luôn giải quyết CoDA với dữ liệu ngân hàng châu âu)
+https://arxiv.org/pdf/2111.08953 8 (tóm tắt lý thuyết, bổ sung vào văn học về việc lựa chọn biến trong các bài toán phân tích hợp thành)
+https://arxiv.org/pdf/1512.05225 8 (tóm tắt lý thuyết,  đặc điểm của trung bình trung tâm một dữ liệu hợp thành với mô hình địa thống kê)
+https://arxiv.org/pdf/2106.05855 0 (ủa cái này có liên quan sao?)
+https://arxiv.org/pdf/2007.06856 (khó sài) (Thực sự có chút không liên quan, chắc chỉ ứng dụng xíu CoDA thôi)
+https://arxiv.org/pdf/1704.06150 (using k-mean) 8.5 (tóm tắt lý thuyết, tập trung ứng dụng CoDA  với K-mean)
+https://arxiv.org/pdf/1412.5848 8 (Tập trung ứng dụng CoDA cho bóng chuyền và có thêm hồi quy tuyến tính, thiên dứng dụng hơn lý thuyết nhiều)
 
 
 https://www.jstor.org/ ||web cung cấp cái gì đó, rảnh thì vô ko thì thôi
