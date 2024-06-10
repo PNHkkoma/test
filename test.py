@@ -12,6 +12,14 @@ https://www.researchgate.net/publication/327387401_Compositional_Data_Analysis_i
 https://arxiv.org/pdf/2201.05197 || thử cái này đi
 http://www.sediment.uni-goettingen.de/staff/tolosana/extra/CoDa.pdf || thử cái này xem
 
+http://www.sediment.uni-goettingen.de/staff/tolosana/extra/CoDa.pdf
+https://arxiv.org/pdf/2004.07881
+https://arxiv.org/pdf/2201.02451
+https://arxiv.org/pdf/2111.08953
+https://www.annualreviews.org/content/journals/10.1146/annurev-statistics-042720-124436
+https://d-nb.info/1221936638/34
+https://is.muni.cz/do/rect/habilitace/1431/Hron/habilitace/7_Hron_et_al__2012_.pdf
+https://www.york.ac.uk/media/economics/documents/hedg/workingpapers/2023/2316.pdf
 
 
 trendyswagsnap@gmail.com
