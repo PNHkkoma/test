@@ -6,3 +6,14 @@ https://www.lockedinai.com/: trang web trả lời phỏng vấn hỗ trợ AI c
 https://www.finalroundai.com/: tương tự cái bên trên
 https://nodeflair.com/: trang web hỗ trợ đánh giá CV bằng AI dựa vào các keyworld
 https://coldcraft.ai/: trang web AI của vừng nè! giúp hỗ trợ các viết thư cho người nào đó để hẹn gặp xin việc
+
+lên kế hoạch cho web livestream golang rextjs:
+https://github.com/livekit/livekit: cái này để quản lý trình phát video RPC các thứ
+rextjs: cái này sẽ để viết frontdend các thứ
+server: tất nhiên mình vẫn sẽ dùng golang gingonic để define các thứ rồi, và đây là 1 cái repo tham khảo về login logout: https://github.com/quangminhit1102/golang-project
+redis: như hôm nay nói chuyện với a Long thì cần redis để lưu cho realtime, thật ra cái này nói là khi với bài toán cty cần xác thực timestamp đầu cuối tránh fake thôi(kiểu nó fake time ở client để đẩy nhanh ấy), cơ bản triển khai sẽ ntn:
+      client tương tác với redis 1 để gửi và lưu toàn bộ message real time tới redis 1 (thấy bảo sử dụng socket)
+      redis 1 tương tác với redis 2 để handle mesage trong 1 khoảng tg (30 p) rồi redis 2 lấy time đầu cuối từ server để tính toán (cái này ko rõ, lúc đầu thấy bảo sẽ chỉ lưu đầu cuối tất cả khác khoảng lên server, sau lại bảo ko có chuyện redis gửi lên server mà chỉ có server gửi lên redis, chắc triển khai sẽ rõ)
+db: AWS DynamoDB, Firebase Realtime Database, bên cạnh đó MongoDB Atlas cũng có thể cân nhắc (nếu như có thể config websocket để realtime)
+server:Rainway, Google Cloud Platform (GCP) và Amazon Web Services (AWS), GitHub Pages, Vercel cũng có thể đc xem xét nhưng mình ko rõ lắm (vì thấy bảo cung cấp host miễn phí), Glitch
+host: FreeHosting.com, Glitch, 
