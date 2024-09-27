@@ -17,3 +17,5 @@ redis: như hôm nay nói chuyện với a Long thì cần redis để lưu cho 
 db: AWS DynamoDB, Firebase Realtime Database, bên cạnh đó MongoDB Atlas cũng có thể cân nhắc (nếu như có thể config websocket để realtime)
 server:Rainway, Google Cloud Platform (GCP) và Amazon Web Services (AWS), GitHub Pages, Vercel cũng có thể đc xem xét nhưng mình ko rõ lắm (vì thấy bảo cung cấp host miễn phí), Glitch
 host: FreeHosting.com, Glitch, 
+
+https://docs.google.com/spreadsheets/d/1Z2OcvVW4d31LWCSDASuAUj3VzUS_4Hqpcc61O7lLsCM/edit?gid=916994768
