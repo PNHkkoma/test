@@ -1,0 +1,82 @@
+.pvn-form-container {
+  ::ng-deep {
+    vts-form-item {
+      margin: 0 !important;
+    }
+
+    vts-input-group {
+      width: 100%;
+      padding: 6px 12px;
+      height: 36px;
+      outline: solid 1px #a1a4a6;
+      border: none !important;
+      border-radius: 6px;
+      box-shadow: none !important;
+      outline: 1px solid #a1a4a6 !important;
+    }
+
+    vts-form-label {
+      margin-bottom: 4px;
+    }
+
+    input.vts-input {
+      padding: 0 !important;
+      box-shadow: none !important;
+      border: none !important;
+      font-size: 14px !important;
+    }
+
+    textarea {
+      min-height: 115px;
+    }
+
+    textarea.vts-input,
+    vts-date-picker,
+    vts-select-top-control {
+      width: 100% !important;
+      padding: 6px 12px !important;
+      outline: solid 1px #a1a4a6 !important;
+      border: none !important;
+      border-radius: 6px !important;
+      box-shadow: none !important;
+      outline: 1px solid #a1a4a6 !important;
+      font-size: 14px !important;
+    }
+
+    vts-select-placeholder,
+    vts-select-item {
+      display: flex;
+      align-items: center;
+      overflow: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      max-width: 360px;
+    }
+  }
+}
+
+.grid-container {
+  display: flex;
+  gap: 24px;
+
+  .grid-item {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+
+    &.lg-6 {
+      width: 50%;
+    }
+  }
+}
+
+.vts-switch.vts-switch-checked.vts-switch-disabled {
+  background-color: #1f69fe !important;
+  opacity: 1;
+}
+.vts-switch.vts-switch-disabled {
+  opacity: 1;
+}
+.icon-delete.disabled:after {
+  opacity: 1 !important;
+}
