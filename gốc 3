@@ -1,0 +1,223 @@
+// @ts-ignore
+
+import {
+  Component,
+  ElementRef,
+  EventEmitter,
+  HostListener,
+  Input,
+  OnInit,
+  Output,
+  ViewChild
+} from '@angular/core';
+import {
+  AbstractControl,
+  FormGroup,
+  UntypedFormControl,
+  Validators
+} from '@angular/forms';
+import {
+  CategoryDTO,
+  ErrorMessagesDTO,
+  FormMode
+} from '@pvn/category/shared/models';
+import { VtsSizeXLMSType } from '@ui-vts-kit/ng-vts/core/types';
+import {
+  englishNameValidator,
+  focusVtsSelect,
+  getErrorMessage,
+  handleKeyDown,
+  notOnlySpacesValidator,
+  specialCharacterCode,
+  specialCharacterName
+} from '@pvn/category/shared/utils';
+
+import { TranslateService } from '@ngx-translate/core';
+import { VtsSelectComponent } from '@ui-vts-kit/ng-vts/select';
+
+interface PostBody {
+  name: AbstractControl<string>;
+  nameEn: AbstractControl<string>;
+  code: AbstractControl<string>;
+  activityLevelId: AbstractControl<string>;
+  description: AbstractControl<string>;
+  used: AbstractControl<number>;
+  alias: AbstractControl<number>;
+  attributionAuthority: AbstractControl<string>;
+}
+
+export enum ColumnType {
+  TEXT = 'TEXT',
+  DATE = 'DATE',
+  DATETIME = 'DATETIME',
+  SWITCH = 'SWITCH',
+  LINK = 'LINK',
+  ACTIONS = 'ACTIONS',
+  DOCUMENTS = 'DOCUMENTS',
+  LEVEL = 'LEVEL'
+}
+
+
+@Component({
+  selector: 'pvn-activity-code-dialog-form',
+  templateUrl: './activity-code-dialog-form.component.html',
+  styleUrls: ['./activity-code-dialog-form.component.scss']
+})
+export class ActivityCodeDialogFormComponent implements OnInit {
+  protected readonly ColumnType = ColumnType;
+  @Input({ required: true }) open = false;
+  @Input({ required: true }) formMode: FormMode = FormMode.create;
+  @Input({ required: true }) data: CategoryDTO | null = null;
+  @Input({ required: true }) listActivityLevelIDs: CategoryDTO[] | null = null;
+
+  @Output() actionOnClose = new EventEmitter();
+  @Output() actionSubmitForm = new EventEmitter<PostBody>();
+
+  @ViewChild('codeInput') codeInput!: ElementRef<HTMLInputElement>;
+  @ViewChild('activityLevelID') activityLevelID!: VtsSelectComponent;
+  value?: string;
+  size: VtsSizeXLMSType = 'md';
+  hasChanges = false;
+  enterTimer = false;
+  isDuplicatedCode = false;
+  currentCode = '';
+
+  constructor(private translate: TranslateService) {
+  }
+
+  ngOnInit(): void {
+    // Subscribe to valueChanges only if in edit mode
+    if (this.formMode === 'edit') {
+      this.setupValueChangesSubscription();
+    }
+
+    this.formGroup.get('code')?.valueChanges.subscribe((newValue) => {
+      if (this.currentCode !== newValue) {
+        this.isDuplicatedCode = false;
+      }
+    });
+  }
+
+  private setupValueChangesSubscription(): void {
+    this.formGroup.valueChanges.subscribe(() => {
+      this.hasChanges = true;
+    });
+  }
+
+  ngOnChanges(): void {
+    if (this.data) {
+      this.setValue('name', this.data.name?.trim());
+      this.setValue('nameEn', this.data.nameEn?.trim());
+      this.setValue('code', this.data.code?.trim());
+      this.setValue('description', this.data.description?.trim());
+      this.setValue('used', this.data.used);
+      this.setValue('alias', this.data.alias);
+      this.setValue('activityLevelId', this.data.activityLevelId?.trim());
+      this.setValue(
+        'attributionAuthority',
+        this.data.attributionAuthority?.trim()
+      );
+    }
+    if (this.formMode === 'edit') {
+      // Reset hasChanges and set up valueChanges subscription on each ngOnChanges
+      this.hasChanges = false;
+      this.setupValueChangesSubscription();
+    }
+  }
+
+  setValue(key: string, value: any) {
+    this.formGroup.get(key)?.setValue(value);
+    this.formGroup.markAllAsTouched();
+    this.formGroup.updateValueAndValidity();
+  }
+
+  formGroup: FormGroup = new FormGroup<PostBody>({
+    name: new UntypedFormControl('', {
+      validators: [
+        Validators.required,
+        Validators.maxLength(255),
+        notOnlySpacesValidator
+      ]
+    }),
+    nameEn: new UntypedFormControl('', {
+      validators: [Validators.maxLength(255), englishNameValidator]
+    }),
+
+    code: new UntypedFormControl(
+      {
+        value: '',
+        disabled: this.formMode === FormMode.view
+      },
+      {
+        validators: [
+          Validators.required,
+          Validators.maxLength(255),
+          notOnlySpacesValidator,
+          specialCharacterCode
+        ]
+      }
+    ),
+
+    description: new UntypedFormControl('', Validators.maxLength(1024)),
+    used: new UntypedFormControl(1, {
+      validators: [Validators.required]
+    }),
+    activityLevelId: new UntypedFormControl('', {
+      validators: [Validators.required, Validators.maxLength(255)]
+    }),
+    alias: new UntypedFormControl('', {
+      validators: [Validators.maxLength(255)]
+    }),
+    attributionAuthority: new UntypedFormControl('', {
+      validators: [Validators.maxLength(255)]
+    })
+  });
+
+  getErrorMessages(fieldName: keyof ErrorMessagesDTO): string {
+    const control = this.formGroup.get(fieldName);
+    if (fieldName === 'anotherName') {
+      return getErrorMessage(fieldName, this.formGroup.get('alias'), this.translate);
+    } else {
+      return getErrorMessage(fieldName, control, this.translate);
+    }
+  }
+
+  handleCloseDialog() {
+    this.actionOnClose.emit();
+    this.handleResetForm();
+    this.isDuplicatedCode = false;
+  }
+
+  handleResetForm() {
+    this.formGroup.reset({ used: 1 });
+    this.isDuplicatedCode = false;
+  }
+
+  handleSubmit() {
+    this.formGroup.markAllAsTouched();
+    if (this.formGroup.valid) {
+      this.actionSubmitForm.emit(this.formGroup.value);
+    }
+  }
+
+  @HostListener('document:keydown', ['$event'])
+  onKeyDown(event: KeyboardEvent) {
+    handleKeyDown(this, event, 'form');
+  }
+
+  handleOnClick(formControlName : string) {
+    if(formControlName === 'activityLevelID'){
+      focusVtsSelect(this.activityLevelID);
+    }
+  }
+
+  // Giá trị mặc định là true (tương ứng với "Có")
+  isUsedChecked: boolean = true;
+
+  // Hàm xử lý khi người dùng nhấn vào switch
+  onUsedClick(event: boolean): void {
+    // Cập nhật trạng thái dựa trên giá trị của event
+    this.isUsedChecked = event; // event sẽ là true (1) hoặc false (0)
+    console.log('Current Value:', this.isUsedChecked ? 1 : 0); // Log giá trị hiện tại
+  }
+}
