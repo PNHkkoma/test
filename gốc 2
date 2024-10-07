@@ -1,82 +1,141 @@
-.pvn-form-container {
-  ::ng-deep {
-    vts-form-item {
-      margin: 0 !important;
-    }
+<div class="category-container">
+<share-ui-search
+  [fields]="searchFields$ | async"
+  (submitEvent)="handleSearch($event)"
+/>
 
-    vts-input-group {
-      width: 100%;
-      padding: 6px 12px;
-      height: 36px;
-      outline: solid 1px #a1a4a6;
-      border: none !important;
-      border-radius: 6px;
-      box-shadow: none !important;
-      outline: 1px solid #a1a4a6 !important;
-    }
+  <div>
+    <!--  <div [class]="'turn-back ' + (checkElements() ? '' : 'active')">-->
+    <!--    <a routerLink="../.." href="javascript:void(0)"-->
+    <!--      ><i class="icon-back"></i-->
+    <!--    ></a>-->
+    <!--    <span class="ml-2">Quản lý {{ titleCategory }}</span>-->
+    <!--  </div>-->
+    <div class="flex justify-between items-center my-4">
+    <div>
+      <span class="form-title">
+        {{ 'category.category' | translate }} {{ titleCategory }}
+      </span>
+      <span style="font-size: 14px">({{ table.total }} kết quả)</span>
+    </div>
+    <div class="flex items-center">
+      <button
+        vts-button
+        vts-dropdown
+        vtsTrigger="click"
+        [vtsDropdownMenu]="menu"
+        [vtsSize]="size"
+        vtsType="default"
+        class="py-3.5 mr-2"
+      >
+        <i class="icon-export-report" vts-icon></i
+        >{{ 'common.button.exportReport' | translate }}
+      </button>
+      <button
+        vts-button
+        [vtsSize]="size"
+        vtsType="primary"
+        class="py-3.5"
+        (click)="showModal()"
+      >
+        <i vts-icon vtsType="AddDoutone:vts"></i
+        >{{ 'common.button.insert' | translate }}
+      </button>
+    </div>
+  </div>
 
-    vts-form-label {
-      margin-bottom: 4px;
-    }
+  <div>
+    <lib-ui-table [tableConfig]="table"></lib-ui-table>
+  </div>
+</div>
+<vts-dropdown-menu #menu="vtsDropdownMenu">
+  <ul vts-menu class="export-container">
+    <li vts-menu-item>
+      <a (click)="export('excel')">
+        <i class="icon-excel"></i>
+        <strong>MS Excel</strong>
+      </a>
+    </li>
+    <li vts-menu-item>
+      <a (click)="export('word')">
+        <i class="icon-word"></i>
+        <strong>MS Word</strong>
+      </a>
+    </li>
+    <li vts-menu-item>
+      <a (click)="export('pdf')">
+        <i class="icon-pdf"></i>
+        <strong>PDF</strong>
+      </a>
+    </li>
+    <li vts-menu-item>
+      <a (click)="export('csv')">
+        <i class="icon-csv"></i>
+        <strong>CSV</strong>
+      </a>
+    </li>
+    <li vts-menu-item>
+      <a (click)="export('html')">
+        <i class="icon-html"></i>
+        <strong>HTML</strong>
+      </a>
+    </li>
+    <li vts-menu-item>
+      <a (click)="export('xml')">
+        <i class="icon-xml"></i>
+        <strong>XML</strong>
+      </a>
+    </li>
+  </ul>
+</vts-dropdown-menu>
 
-    input.vts-input {
-      padding: 0 !important;
-      box-shadow: none !important;
-      border: none !important;
-      font-size: 14px !important;
-    }
+  <!--<vts-dropdown-menu #menu="vtsDropdownMenu">-->
+  <!--  <ul vts-menu>-->
+  <!--    <li (click)="exportExcel()" vts-menu-item>MS excel</li>-->
+  <!--    &lt;!&ndash;    <li vts-menu-item>MS word</li>&ndash;&gt;-->
+  <!--    &lt;!&ndash;    <li vts-menu-item>PDF</li>&ndash;&gt;-->
+  <!--    &lt;!&ndash;    <li vts-menu-item>CSV</li>&ndash;&gt;-->
+  <!--    &lt;!&ndash;    <li vts-menu-item>HTML</li>&ndash;&gt;-->
+  <!--    &lt;!&ndash;    <li vts-menu-item>XML</li>&ndash;&gt;-->
+  <!--  </ul>-->
+  <!--</vts-dropdown-menu>-->
 
-    textarea {
-      min-height: 115px;
-    }
+<ng-container *ngIf="isModalVisible">
+  <pvn-category-form
+    [category]="category"
+    [code]="code"
+    [titleCategory]="titleCategory"
+    [isVisible]="isModalVisible"
+    (closeModalEvent)="handleModalClose()"
+    [modalTitle]="modalTitle"
+    [isDisable]="isDisable"
+    [mode]="mode"
+  />
+</ng-container>
 
-    textarea.vts-input,
-    vts-date-picker,
-    vts-select-top-control {
-      width: 100% !important;
-      padding: 6px 12px !important;
-      outline: solid 1px #a1a4a6 !important;
-      border: none !important;
-      border-radius: 6px !important;
-      box-shadow: none !important;
-      outline: 1px solid #a1a4a6 !important;
-      font-size: 14px !important;
-    }
+<ng-container *ngIf="isModalTaxVisible">
+  <pvn-tax-form
+    [category]="category"
+    [isVisible]="isModalTaxVisible"
+    (closeModalEvent)="handleModalClose()"
+    [modalTitle]="modalTitle"
+    [code]="code"
+    [isDisable]="isDisable"
+    [mode]="mode"
+  />
+</ng-container>
 
-    vts-select-placeholder,
-    vts-select-item {
-      display: flex;
-      align-items: center;
-      overflow: hidden;
-      white-space: nowrap;
-      text-overflow: ellipsis;
-      max-width: 360px;
-    }
-  }
-}
-
-.grid-container {
-  display: flex;
-  gap: 24px;
-
-  .grid-item {
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
-
-    &.lg-6 {
-      width: 50%;
-    }
-  }
-}
-
-.vts-switch.vts-switch-checked.vts-switch-disabled {
-  background-color: #1f69fe !important;
-  opacity: 1;
-}
-.vts-switch.vts-switch-disabled {
-  opacity: 1;
-}
-.icon-delete.disabled:after {
-  opacity: 1 !important;
-}
+<ng-container *ngIf="isModalAgreementTypeFormVisible">
+  <pvn-agreement-type-form
+    [isCommissionType]="isCommissionType"
+    [category]="category"
+    [titleCategory]="titleCategory"
+    [isVisible]="isModalAgreementTypeFormVisible"
+    (closeModalEvent)="handleModalClose()"
+    [modalTitle]="modalTitle"
+    [code]="code"
+    [isDisable]="isDisable"
+    [mode]="mode"
+  />
+</ng-container>
+</div>
