@@ -1,192 +1,211 @@
-<pvn-dialog-common (handleClose)="handleCloseDialog()" (keydown)="onKeyDown($event)" [open]="open"
-    [separateHeader]="true">
-    <div *ngIf="formMode === 'create'" dialogHeader>
-        {{ 'common.button.insert' | translate }}
-        {{ 'category.categoryName.activityCode' | translate }}
-    </div>
-    <div dialogHeader>
-        <ng-container *ngIf="data">
-            {{ 'category.title.updated' | translate }}
-            {{ 'category.categoryName.activityCode' | translate }}:
-            <span style="color: #0b51b7; font-weight: 600">{{ data.code }}</span>
-        </ng-container>
-    </div>
-
-    <ng-container dialogContent>
-        <div class="pvn-form-container">
-            <form [formGroup]="formGroup" [vtsLayout]="'vertical'" [vtsSize]="size" vts-form>
-                <div class="grid-container">
-                    <div class="grid-item lg-6">
-                        <vts-form-item>
-                            <vts-form-label [vtsRequired]="true">{{
-                                'category.code' | translate
-                                }}
-                            </vts-form-label>
-                            <vts-form-control [vtsErrorTip]="getErrorMessages('code')">
-                                <ng-container *ngIf="formMode === 'create'">
-                                    <vts-input-group [vtsSize]="size">
-                                        <input autofocus formControlName="code" vts-input />
-                                    </vts-input-group>
-                                </ng-container>
-                                <ng-container *ngIf="formMode === 'edit'">
-                                    <vts-input-group [vtsSize]="size">
-                                        <input autofocus formControlName="code" vts-input />
-                                    </vts-input-group>
-                                </ng-container>
-                            </vts-form-control>
-                        </vts-form-item>
-                        <vts-form-item>
-                            <vts-form-label [vtsRequired]="true">{{
-                                'category.name' | translate
-                                }}
-                            </vts-form-label>
-                            <vts-form-control [vtsErrorTip]="getErrorMessages('name')">
-                                <vts-input-group [vtsSize]="size">
-                                    <input formControlName="name" vts-input />
-                                </vts-input-group>
-                            </vts-form-control>
-                        </vts-form-item>
-                        <vts-form-item>
-                            <vts-form-label>{{
-                                'category.nameEn' | translate
-                                }}
-                            </vts-form-label>
-                            <vts-form-control [vtsErrorTip]="getErrorMessages('nameEn')">
-                                <vts-input-group [vtsSize]="size">
-                                    <input formControlName="nameEn" vts-input />
-                                </vts-input-group>
-                            </vts-form-control>
-                        </vts-form-item>
-
-                        <vts-form-item>
-                            <vts-form-label>{{
-                                'category.anotherName' | translate
-                                }}
-                            </vts-form-label>
-                            <vts-form-control [vtsErrorTip]="getErrorMessages('anotherName')">
-                                <vts-input-group [vtsSize]="size">
-                                    <input formControlName="alias" vts-input />
-                                </vts-input-group>
-                            </vts-form-control>
-                        </vts-form-item>
-
-                        <vts-form-item>
-                            <vts-form-label [vtsRequired]="true">{{
-                                'category.activityLevelID' | translate
-                                }}
-                            </vts-form-label>
-                            <vts-form-control [vtsErrorTip]="getErrorMessages('activityLevelID')">
-                                <vts-select #activityLevelID [vtsSize]="size" formControlName="activityLevelId"
-                                    name="selectactivityLevels" vtsAllowClear="true"
-                                    vtsPlaceHolder="{{ 'category.choose' | translate }}" vtsShowSearch
-                                    (click)="handleOnClick('activityLevelID')">
-                                    <vts-option *ngFor="let a of listActivityLevelIDs"
-                                        [vtsLabel]="(a.code || '').toString()" [vtsValue]="a.id"></vts-option>
-                                </vts-select>
-                            </vts-form-control>
-                        </vts-form-item>
-                    </div>
-                    <div class="grid-item lg-6">
-                        <vts-form-item>
-                            <vts-form-label>{{
-                                'category.description' | translate
-                                }}
-                            </vts-form-label>
-                            <vts-form-control [vtsErrorTip]="getErrorMessages('description')">
-                                <textarea [vtsAutosize]="false" formControlName="description" name="input1" rows="5"
-                                    vts-input></textarea>
-                            </vts-form-control>
-                        </vts-form-item>
-
-                        <vts-form-item>
-                            <vts-form-label>{{
-                                'category.attributionAuthority' | translate
-                                }}
-                            </vts-form-label>
-                            <vts-form-control [vtsErrorTip]="getErrorMessages('attributionAuthority')">
-                                <vts-input-group [vtsSize]="size">
-                                    <input formControlName="attributionAuthority" vts-input />
-                                </vts-input-group>
-                            </vts-form-control>
-                        </vts-form-item>
-
-                        <!--cái này là để bao bọc quanh, có lẽ dùng là 1 thẻ typescrip common được các anh dịnh nghĩa-->
-                        <vts-form-item>
-                            <!--cái này là hiển thị label tức tiêu đề, khỏi cần nghĩ-->
-                            <vts-form-label>{{ 'category.used' | translate }}</vts-form-label>
-                            <!--vts-form-control là 1 cái gì đó thuộc common rồi, kiểm soát phần input của form, nên nếu về swich phải bỏ cái này
-                            nếu có lỗi sẽ được hiển thị thông qua hàm getErrorMessages, cụ thể used là biến như thế nào thì ko biết-->
-                            <vts-form-control [vtsErrorTip]="getErrorMessages('used')">
-                                <!--<vts-select> thành phần dropdown (chọn một giá trị từ danh sách các tùy chọn), hoạt động như một select HTML
-                                    [vtsSize]="size": Xác định kích thước của dropdown, giá trị size được định nghĩa trong component TypeScript
-                                    formControlName="used": Ràng buộc dropdown với form control used trong FormGroup
-                                    (từ đây có vẻ như used là 1 cái formGroup hoặc là 1 thành phần của nó, khi đó mới tạo ràng buộc đc chứ)
-                                    name="select1": Tên của trường select
-                                    vtsAllowClear="false": Không cho phép người dùng xóa giá trị đã chọn.(cái này là để cho phép điền vào ấy)
-                                    vtsPlaceHolder="{{ 'category.choose' | translate }}": Hiển thị văn bản placeholder khi chưa có lựa chọn.
-                                    vtsShowSearch: Cho phép người dùng tìm kiếm trong các tùy chọn-->
-                                <vts-select [vtsSize]="size" formControlName="used" name="select1" vtsAllowClear="false"
-                                    vtsPlaceHolder="{{ 'category.choose' | translate }}" vtsShowSearch>
-                                    <!--Một option trong dropdown-->
-                                    <vts-option [vtsValue]="1"
-                                        vtsLabel="{{ 'category.optionYes' | translate }}"></vts-option>
-                                    <!--Một option trong dropdown-->
-                                    <vts-option [vtsValue]="0"
-                                        vtsLabel="{{ 'category.optionNo' | translate }}"></vts-option>
-                                </vts-select>
-                            </vts-form-control>
-                        </vts-form-item>
-
-
-                        <!--sau khi được chuyển đổi từ chatgpt-->
-                        <vts-form-item>
-                            <vts-form-label>{{ 'category.used' | translate }}</vts-form-label>
-                            <vts-form-control [vtsErrorTip]="getErrorMessages('used')">
-                                <vts-switch [vtsCheckedChildren]="'category.optionYes' | translate"
-                                    [vtsUnCheckedChildren]="'category.optionNo' | translate" [vtsSize]="size"
-                                    [ngModel]="isUsedChecked" (ngModelChange)="onUsedClick($event)"></vts-switch>
-                            </vts-form-control>
-                        </vts-form-item>
-
-
-
-
-
-                        <vts-form-item>
-                            <vts-form-label>{{ 'category.used' | translate }}</vts-form-label>
-                            <vts-form-control [vtsErrorTip]="getErrorMessages('used')">
-                                <div class="flex gap-4 items-center">
-                                    <vts-switch [vtsCheckedChildren]="'category.optionYes' | translate"
-                                        [vtsUnCheckedChildren]="'category.optionNo' | translate"
-                                        [ngModel]="isUsedChecked" (ngModelChange)="onUsedClick($event)"></vts-switch>
-                                </div>
-                            </vts-form-control>
-                        </vts-form-item>
-                    </div>
-                </div>
-            </form>
-        </div>
+<pvn-dialog-common
+  (handleClose)="handleCloseDialog()"
+  (keydown)="onKeyDown($event)"
+  [open]="open"
+  [separateHeader]="true"
+>
+  <div *ngIf="formMode === 'create'" dialogHeader>
+    {{ 'common.button.insert' | translate }}
+    {{ 'category.categoryName.activityCode' | translate }}
+  </div>
+  <div dialogHeader>
+    <ng-container *ngIf="data">
+      {{ 'category.title.updated' | translate }}
+      {{ 'category.categoryName.activityCode' | translate }}:
+      <span style="color: #0b51b7; font-weight: 600">{{ data.code }}</span>
     </ng-container>
-    <ng-container dialogAction>
-        <pvn-button-common (handleClick)="handleCloseDialog()" variant="outlined"
-            [toolTipText]='("common.tooltip.cancel" | translate)'>{{
-            'common.button.cancel' | translate
-            }}
-        </pvn-button-common>
-        <div>
-            <pvn-button-common (handleClick)="handleSubmit()"
-                [toolTipText]="formMode === 'create'? ('common.tooltip.insert' | translate): ('common.tooltip.updated' | translate)"
-                [disabled]="
+  </div>
+
+  <ng-container dialogContent>
+    <div class="pvn-form-container">
+      <form
+        [formGroup]="formGroup"
+        [vtsLayout]="'vertical'"
+        [vtsSize]="size"
+        vts-form
+      >
+        <div class="grid-container">
+          <div class="grid-item lg-6">
+            <vts-form-item>
+              <vts-form-label [vtsRequired]="true">{{
+                  'category.code' | translate
+                }}
+              </vts-form-label>
+              <vts-form-control [vtsErrorTip]="getErrorMessages('code')">
+                <ng-container *ngIf="formMode === 'create'">
+                  <vts-input-group [vtsSize]="size">
+                    <input autofocus formControlName="code" vts-input />
+                  </vts-input-group>
+                </ng-container>
+                <ng-container *ngIf="formMode === 'edit'">
+                  <vts-input-group [vtsSize]="size">
+                    <input autofocus formControlName="code" vts-input />
+                  </vts-input-group>
+                </ng-container>
+              </vts-form-control>
+            </vts-form-item>
+            <vts-form-item>
+              <vts-form-label [vtsRequired]="true">{{
+                  'category.name' | translate
+                }}
+              </vts-form-label>
+              <vts-form-control [vtsErrorTip]="getErrorMessages('name')">
+                <vts-input-group [vtsSize]="size">
+                  <input formControlName="name" vts-input />
+                </vts-input-group>
+              </vts-form-control>
+            </vts-form-item>
+            <vts-form-item>
+              <vts-form-label>{{
+                  'category.nameEn' | translate
+                }}
+              </vts-form-label>
+              <vts-form-control [vtsErrorTip]="getErrorMessages('nameEn')">
+                <vts-input-group [vtsSize]="size">
+                  <input formControlName="nameEn" vts-input />
+                </vts-input-group>
+              </vts-form-control>
+            </vts-form-item>
+
+            <vts-form-item>
+              <vts-form-label>{{
+                  'category.anotherName' | translate
+                }}
+              </vts-form-label>
+              <vts-form-control [vtsErrorTip]="getErrorMessages('anotherName')">
+                <vts-input-group [vtsSize]="size">
+                  <input formControlName="alias" vts-input />
+                </vts-input-group>
+              </vts-form-control>
+            </vts-form-item>
+
+            <vts-form-item>
+              <vts-form-label [vtsRequired]="true">{{
+                  'category.activityLevelID' | translate
+                }}
+              </vts-form-label>
+              <vts-form-control
+                [vtsErrorTip]="getErrorMessages('activityLevelID')"
+              >
+                <vts-select
+                  #activityLevelID
+                  [vtsSize]="size"
+                  formControlName="activityLevelId"
+                  name="selectactivityLevels"
+                  vtsAllowClear="true"
+                  vtsPlaceHolder="{{ 'category.choose' | translate }}"
+                  vtsShowSearch
+                  (click)="handleOnClick('activityLevelID')"
+                >
+                  <vts-option
+                    *ngFor="let a of listActivityLevelIDs"
+                    [vtsLabel]="(a.code || '').toString()"
+                    [vtsValue]="a.id"
+                  ></vts-option>
+                </vts-select>
+              </vts-form-control>
+            </vts-form-item>
+          </div>
+          <div class="grid-item lg-6">
+            <vts-form-item>
+              <vts-form-label>{{
+                  'category.description' | translate
+                }}
+              </vts-form-label>
+              <vts-form-control [vtsErrorTip]="getErrorMessages('description')">
+                <textarea
+                  [vtsAutosize]="false"
+                  formControlName="description"
+                  name="input1"
+                  rows="5"
+                  vts-input
+                ></textarea>
+              </vts-form-control>
+            </vts-form-item>
+
+            <vts-form-item>
+              <vts-form-label>{{
+                  'category.attributionAuthority' | translate
+                }}
+              </vts-form-label>
+              <vts-form-control
+                [vtsErrorTip]="getErrorMessages('attributionAuthority')"
+              >
+                <vts-input-group [vtsSize]="size">
+                  <input formControlName="attributionAuthority" vts-input />
+                </vts-input-group>
+              </vts-form-control>
+            </vts-form-item>
+
+            <vts-form-item>
+              <vts-form-label>{{ 'category.used' | translate }}</vts-form-label>
+              <vts-form-control [vtsErrorTip]="getErrorMessages('used')">
+                <vts-select
+                  [vtsSize]="size"
+                  formControlName="used"
+                  name="select1"
+                  vtsAllowClear="false"
+                  vtsPlaceHolder="{{ 'category.choose' | translate }}"
+                  vtsShowSearch
+                >
+                  <vts-option [vtsValue]="1" vtsLabel="{{ 'category.optionYes' | translate }}"></vts-option>
+                  <vts-option [vtsValue]="0" vtsLabel="{{ 'category.optionNo' | translate }}"></vts-option>
+                </vts-select>
+              </vts-form-control>
+            </vts-form-item>
+            <vts-form-item  id="dynamic-table">
+              <vts-form-label>{{ 'category.used' | translate }}</vts-form-label>
+              <vts-form-control [vtsErrorTip]="getErrorMessages('used')">
+                <div class="flex gap-4 items-center">
+                  <div class="switch-container">
+                    <vts-switch
+                      [(ngModel)]="isUsedChecked"
+                      (ngModelChange)="isUsedChecked = $event" <!-- Cập nhật giá trị isUsedChecked -->
+                    class="custom-switch"
+                    ></vts-switch>
+                    <div>
+                      <ng-container *ngIf="isUsedChecked; else elseBlock">
+                        {{ 'category.optionYes' | translate }} <!-- Hiển thị khi isUsedChecked là true -->
+                      </ng-container>
+                      <ng-template #elseBlock>
+                        {{ 'category.optionNo' | translate }} <!-- Hiển thị khi isUsedChecked là false -->
+                      </ng-template>
+                      <div>
+                        {{ isUsedChecked }} <!-- Hiển thị giá trị của biến isUsedChecked -->
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </vts-form-control>
+            </vts-form-item>
+          </div>
+        </div>
+      </form>
+    </div>
+  </ng-container>
+  <ng-container dialogAction>
+    <pvn-button-common (handleClick)="handleCloseDialog()"
+                       variant="outlined"
+                       [toolTipText]='("common.tooltip.cancel" | translate)'>{{
+        'common.button.cancel' | translate
+      }}
+    </pvn-button-common>
+    <div>
+      <pvn-button-common
+        (handleClick)="handleSubmit()"
+        [toolTipText]="formMode === 'create'? ('common.tooltip.insert' | translate): ('common.tooltip.updated' | translate)"
+        [disabled]="
           formGroup.invalid ||
           (!hasChanges && formMode === 'edit') ||
           isDuplicatedCode
-        ">
-                {{
-                formMode === 'create'
-                ? ('common.button.insert' | translate)
-                : ('common.button.updated' | translate)
-                }}
-            </pvn-button-common>
-        </div>
-    </ng-container>
+        "
+      >
+        {{
+          formMode === 'create'
+            ? ('common.button.insert' | translate)
+            : ('common.button.updated' | translate)
+        }}
+      </pvn-button-common>
+    </div>
+  </ng-container>
 </pvn-dialog-common>
