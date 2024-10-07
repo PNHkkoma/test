@@ -31,6 +31,8 @@ import {
   specialCharacterCode,
   specialCharacterName
 } from '@pvn/category/shared/utils';
+import { FormsModule } from '@angular/forms';
+import { VtsSwitchModule } from '@ui-vts-kit/ng-vts/switch';
 
 import { TranslateService } from '@ngx-translate/core';
 import { VtsSelectComponent } from '@ui-vts-kit/ng-vts/select';
@@ -211,13 +213,11 @@ export class ActivityCodeDialogFormComponent implements OnInit {
     }
   }
 
-  // Giá trị mặc định là true (tương ứng với "Có")
-  isUsedChecked: boolean = true;
+  isUsedChecked: boolean = true; // Giá trị mặc định là "Có hiệu lực"
 
-  // Hàm xử lý khi người dùng nhấn vào switch
   onUsedClick(event: boolean): void {
-    // Cập nhật trạng thái dựa trên giá trị của event
-    this.isUsedChecked = event; // event sẽ là true (1) hoặc false (0)
-    console.log('Current Value:', this.isUsedChecked ? 1 : 0); // Log giá trị hiện tại
+    this.isUsedChecked = event; // Cập nhật giá trị dựa trên sự kiện thay đổi
   }
+
+
 }
