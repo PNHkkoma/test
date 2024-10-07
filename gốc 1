@@ -160,19 +160,16 @@
                   <div class="switch-container">
                     <vts-switch
                       [(ngModel)]="isUsedChecked"
-                      (ngModelChange)="isUsedChecked = $event" <!-- Cập nhật giá trị isUsedChecked -->
-                    class="custom-switch"
+                      (ngModelChange)="isUsedChecked = $event"
+                      class="custom-switch"
                     ></vts-switch>
                     <div>
                       <ng-container *ngIf="isUsedChecked; else elseBlock">
-                        {{ 'category.optionYes' | translate }} <!-- Hiển thị khi isUsedChecked là true -->
+                        {{ isUsedChecked }} <!-- Hiển thị khi isUsedChecked là true -->
                       </ng-container>
                       <ng-template #elseBlock>
-                        {{ 'category.optionNo' | translate }} <!-- Hiển thị khi isUsedChecked là false -->
+                        {{ isUsedChecked }} <!-- Hiển thị khi isUsedChecked là false -->
                       </ng-template>
-                      <div>
-                        {{ isUsedChecked }} <!-- Hiển thị giá trị của biến isUsedChecked -->
-                      </div>
                     </div>
                   </div>
                 </div>
