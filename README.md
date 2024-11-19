@@ -273,3 +273,86 @@
             abort(500);
         }
     }
+public function getListCodes(Request $request)
+    {
+        try {
+            $codes = DB::table('khoan_muc')->get();
+            $nameCodes = $codes->map(function ($item) {
+                $decoded = json_decode($item, true); // Giải mã trực tiếp mỗi phần tử
+                return [
+                    'name' => $decoded['name'] ?? null,
+                ];
+            });
+            return response()->json([
+                'success' => true,
+                'listCodes' => $nameCodes
+            ]);
+        } catch (Exception $e) {
+            abort(500);
+        }
+    }
+
+    public function showReportcomparative(Request $request) {}
+
+    public function getNameRequirementTH(Request $request)
+    {
+        $year = $request['year'];
+        $typePeriod = $request['typePeriod'];
+        $period = $request['period'] ?? null;
+        $month = $request['month'] ?? null;
+        if ($typePeriod == 'month') {
+            $data = DB::table('process_requests')
+                ->where('application_id', 73)
+                ->whereRaw('JSON_UNQUOTE(JSON_EXTRACT(data, "$.ky_bc")) = ?', [$typePeriod])
+                ->whereRaw('JSON_UNQUOTE(JSON_EXTRACT(data, "$.thang")) = ?', [$month])
+                ->whereRaw('JSON_UNQUOTE(JSON_EXTRACT(data, "$.nam")) = ?', [$year])
+                ->pluck('data');
+        } else if ($typePeriod == 'quarter') {
+            $data = DB::table('process_requests')
+                ->where('application_id', 73)
+                ->whereRaw('JSON_UNQUOTE(JSON_EXTRACT(data, "$.ky_bc")) = ?', [$typePeriod])
+                ->whereRaw('JSON_UNQUOTE(JSON_EXTRACT(data, "$.quy")) = ?', [$period])
+                ->whereRaw('JSON_UNQUOTE(JSON_EXTRACT(data, "$.nam")) = ?', [$year])
+                ->pluck('data');
+        }
+        //nếu có N3
+        $nameRequirement = $data->filter(function ($item) {
+            $decoded = json_decode($item, true);
+            if ($decoded['ktth_vtg_pd'] == 1) {
+                return isset($decoded['loai_dl']) &&
+                    $decoded['ktth_vtg_pd'] == 1 &&
+                    $decoded['loai_dl'] == 3;
+            } else {
+                return isset($decoded['loai_dl']) &&
+                    $decoded['loai_dl'] == 3;
+            }
+        });
+        //ko có thì kiếm N25
+        if ($nameRequirement->isEmpty()) {
+            $nameRequirement = $data->filter(function ($item) {
+                $decoded = json_decode($item, true);
+                if ($decoded['ktth_vtg_pd'] == 1) {
+                    return isset($decoded['loai_dl']) &&
+                        $decoded['ktth_vtg_pd'] == 1 &&
+                        $decoded['loai_dl'] == 4;
+                } else {
+                    return isset($decoded['loai_dl']) &&
+                        $decoded['loai_dl'] == 4;
+                }
+            });
+        }
+        if ($nameRequirement->isEmpty()) {
+            return response()->json([
+                'success' => true,
+                'nameRequirementTH' => 'no report requirement for the selected reporting period.',
+            ]);
+        }
+        $names = $nameRequirement->map(function ($item) {
+            $decoded = json_decode($item, true); // Giải mã trực tiếp mỗi phần tử
+            return $decoded['name'] ?? null;
+        });
+        return response()->json([
+            'success' => true,
+            'nameRequirementTH' => $names
+        ]);
+    }
