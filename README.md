@@ -15,96 +15,24 @@ SELECT
     bhn.hop_nhat_vtp AS 'Hợp nhất + VTP',
     bhn.hop_nhat_tru_lo AS 'Hợp nhất loại trừ lỗ công ty liên kết vượt qua vốn góp',
     bhn.hop_nhat_vtp_tru_lo AS 'Hợp nhất + VTP loại trừ lỗ công ty liên kết vượt qua vốn góp',
-    CASE
-        WHEN bhn.company_id='VTC'
-        THEN bhn.value
-        ELSE NULL
-    END AS 'VTC',
-    CASE
-        WHEN bhn.company_id='STL'
-        THEN bhn.value
-        ELSE NULL
-    END AS 'STL',
-    CASE
-        WHEN bhn.company_id='NCM'
-        THEN bhn.value
-        ELSE NULL
-    END AS 'NCM',
-    CASE
-        WHEN bhn.company_id='MVT'
-        THEN bhn.value
-        ELSE NULL
-    END AS 'MVT',
-    CASE
-        WHEN bhn.company_id='VTL'
-        THEN bhn.value
-        ELSE NULL
-    END AS 'VTL',
-    CASE
-        WHEN bhn.company_id='VCR'
-        THEN bhn.value
-        ELSE NULL
-    END AS 'VCR',
-    CASE
-        WHEN bhn.company_id='VTB'
-        THEN bhn.value
-        ELSE NULL
-    END AS 'VTB',
-    CASE
-        WHEN bhn.company_id='VTZ'
-        THEN bhn.value
-        ELSE NULL
-    END AS 'VTZ',
-    CASE
-        WHEN bhn.company_id='NCM_E'
-        THEN bhn.value
-        ELSE NULL
-    END AS 'NCM_E',
-    CASE
-        WHEN bhn.company_id='VTP'
-        THEN bhn.value
-        ELSE NULL
-    END AS 'VTP',
-    CASE
-        WHEN bhn.company_id='MYN'
-        THEN bhn.value
-        ELSE NULL
-    END AS 'MYN',
-    CASE
-        WHEN bhn.company_id='MOV_E'
-        THEN bhn.value
-        ELSE NULL
-    END AS 'MOV_E',
-    CASE
-        WHEN bhn.company_id='VTL_E'
-        THEN bhn.value
-        ELSE NULL
-    END AS 'VTL_E',
-    CASE
-        WHEN bhn.company_id='MYN_E'
-        THEN bhn.value
-        ELSE NULL
-    END AS 'MYN_E',
-    CASE
-        WHEN bhn.company_id='VTC_E'
-        THEN bhn.value
-        ELSE NULL
-    END AS 'VTC_E',
-    CASE
-        WHEN bhn.company_id='VTB_E'
-        THEN bhn.value
-        ELSE NULL
-    END AS 'VTB_E',
-    CASE
-        WHEN bhn.company_id='STL_E'
-        THEN bhn.value
-        ELSE NULL
-    END AS 'STL_E',
-    CASE
-        WHEN bhn.company_id='VTZ_E'
-        THEN bhn.value
-        ELSE NULL
-    END AS 'VTZ_E',
+    MAX(CASE WHEN bhn.company_id='VTC' THEN bhn.value ELSE NULL END) AS 'VTC',
+    MAX(CASE WHEN bhn.company_id='STL' THEN bhn.value ELSE NULL END) AS 'STL',
+    MAX(CASE WHEN bhn.company_id='NCM' THEN bhn.value ELSE NULL END) AS 'NCM',
+    MAX(CASE WHEN bhn.company_id='MVT' THEN bhn.value ELSE NULL END) AS 'MVT',
+    MAX(CASE WHEN bhn.company_id='VTL' THEN bhn.value ELSE NULL END) AS 'VTL',
+    MAX(CASE WHEN bhn.company_id='VCR' THEN bhn.value ELSE NULL END) AS 'VCR',
+    MAX(CASE WHEN bhn.company_id='VTB' THEN bhn.value ELSE NULL END) AS 'VTB',
+    MAX(CASE WHEN bhn.company_id='VTZ' THEN bhn.value ELSE NULL END) AS 'VTZ',
+    MAX(CASE WHEN bhn.company_id='NCM_E' THEN bhn.value ELSE NULL END) AS 'NCM_E',
+    MAX(CASE WHEN bhn.company_id='VTP' THEN bhn.value ELSE NULL END) AS 'VTP',
+    MAX(CASE WHEN bhn.company_id='MYN' THEN bhn.value ELSE NULL END) AS 'MYN',
+    MAX(CASE WHEN bhn.company_id='MOV_E' THEN bhn.value ELSE NULL END) AS 'MOV_E',
+    MAX(CASE WHEN bhn.company_id='VTL_E' THEN bhn.value ELSE NULL END) AS 'VTL_E',
+    MAX(CASE WHEN bhn.company_id='MYN_E' THEN bhn.value ELSE NULL END) AS 'MYN_E',
+    MAX(CASE WHEN bhn.company_id='VTC_E' THEN bhn.value ELSE NULL END) AS 'VTC_E',
+    MAX(CASE WHEN bhn.company_id='VTB_E' THEN bhn.value ELSE NULL END) AS 'VTB_E',
+    MAX(CASE WHEN bhn.company_id='STL_E' THEN bhn.value ELSE NULL END) AS 'STL_E',
+    MAX(CASE WHEN bhn.company_id='VTZ_E' THEN bhn.value ELSE NULL END) AS 'VTZ_E',
     bhn.year,
     bhn.Report_id AS 'Request id'
 FROM
