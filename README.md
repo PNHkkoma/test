@@ -14,7 +14,7 @@ public function handleExcelFile()
     $spreadsheet = \PhpOffice\PhpSpreadsheet\IOFactory::loadFromString($tempFile);
 
     // Modify the content as needed
-    $sheet = $spreadsheet->getActiveSheet();
+    $sheet = $spreadsheet->g
     $sheet->setCellValue('A1', 'Modified Content');
 
     // Save the modified file to a temporary location
@@ -23,5 +23,16 @@ public function handleExcelFile()
     $writer->save($tempPath);
 
     // Return the modified file for download
-    return response()->download($tempPath)->deleteFileAfterSend(true);
+    return response()->download($tempPath)-
+    
+    
+    
+    
+    >deleteFileAfterSend(true);
 }
+
+
+
+
+
+https://id.tableau.com/token/825a6830a5b04f5abe10e0d065b0447d
