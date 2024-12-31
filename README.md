@@ -1,4 +1,4 @@
-https://datasecurity.viettel.vn/apps/onlineeditor/105403510-nbox-vtg-tong-hop-loi-xlsx?dir=/NBOX-VTG
+https://datasecurity.viettel.vn/s/wJz4LB2G46wSqZp/link-log-bug
 use Illuminate\Support\Facades\Storage;
 use Maatwebsite\Excel\Facades\Excel;
 use PhpOffice\PhpSpreadsheet\Spreadsheet;
