@@ -1,4 +1,4 @@
-https://datasecurity.viettel.vn/s/wJz4LB2G46wSqZp/link-log-bug
+https://www.figma.com/design/dGYhSiA0tD3OcrGN38iCRp/UI_PVN?m=auto&t=UxmdAmGHfwE7tYQR-1
 use Illuminate\Support\Facades\Storage;
 use Maatwebsite\Excel\Facades\Excel;
 use PhpOffice\PhpSpreadsheet\Spreadsheet;
