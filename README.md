@@ -1,5 +1,9 @@
 https://www.figma.com/design/dGYhSiA0tD3OcrGN38iCRp/UI_PVN?
 
+https://www.figma.com/design/UUhBgaK92cgYvvmLmcHmEo/QLH%C4%90_v3_%C4%91%C3%A1nh-s%E1%BB%91?m=auto&t=IndL3BmHleiFKCE0-6
+
+
+
 https://www.figma.com/design/R8Hk8WcGLjn78KUDDnpHmj/UX_PVN?m=auto&t=UxmdAmGHfwE7tYQR-1
 m=auto&t=UxmdAmGHfwE7tYQR-1
 use Illuminate\Support\Facades\Storage;
