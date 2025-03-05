@@ -1,4 +1,4 @@
-https://www.figma.com/design/dGYhSiA0tD3OcrGN38iCRp/UI_PVN?
+itms-services://?action=download-manifest&url=https%3A%2F%2Fviettelfamily.com%2Fuploads%2Fviettel360%2Fvops%2Fios%2FvOps.plist
 
 https://www.figma.com/design/UUhBgaK92cgYvvmLmcHmEo/QLH%C4%90_v3_%C4%91%C3%A1nh-s%E1%BB%91?m=auto&t=IndL3BmHleiFKCE0-6
 
