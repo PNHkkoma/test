@@ -17,6 +17,27 @@ public function handleExcelFile()
     $filePath = 'path/to/excel-file.xlsx';
     $tempFile = Storage::disk('s3')->get($filePath);
 
+
+    <ng-template #cancelChangesModal let-modal>
+    <div class="modal-wrapper">
+        <div class="modal-header px-24 pt-24 pb-0">
+            <span style="font-weight: 600; font-size: 20px;">{{'WARNINGS.UNSAVED_CHANGES' | translate}}</span>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"
+                    (click)="modal.dismiss()">
+            </button>
+        </div>
+        <div class="modal-body p-24">{{'WARNINGS.CANCEL_CHANGES_WARNING_TEXT' | translate}}</div>
+        <div class="modal-footer d-flex align-items-start btns px-24 pt-0 pb-24">
+            <button type="button" class="button cancel" (click)="modal.dismiss();" [autoFocus]="true">
+                {{'VERBS.BACK' | translate}}
+            </button>
+            <button type="button" class="ms-2 button save" (click)=" this._router.navigate(['/cxsurvey/list'])">
+                {{'WARNINGS.EXIT_WITHOUT_SAVING' | translate}}
+            </button>
+        </div>
+    </div>
+</ng-template>
+
     // Load the Excel content
     $spreadsheet = \PhpOffice\PhpSpreadsheet\IOFactory::loadFromString($tempFile);
 
